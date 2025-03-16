@@ -6,7 +6,7 @@ import logo from "@/public/logo.png";
 
 export default function Home() {
   return (
-    <main className='my-5 w-full flex felx-col items-center justify-center'>
+    <main className='my-5 w-full flex felx-col items-center justify-center text-slate-800'>
       <section id='hero-section' className='md:grid grid-cols-2 w-10/12'>
         <div className='h-auto p-1'>
           <h1 className='text-2xl text-center'>هتل کازابلانکا</h1>
