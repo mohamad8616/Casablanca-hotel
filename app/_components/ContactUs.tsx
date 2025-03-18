@@ -3,13 +3,13 @@ import { MdEmail } from "react-icons/md";
 
 export default function ContactUs() {
   return (
-    <div className=' md:flex flex-col hidden'>
-      <div className='flex justify-end space-x-3 items-center text-xs'>
+    <div className="hidden flex-col md:flex">
+      <div className="flex items-center justify-end space-x-3 text-xs">
         <p>mohamad.sh.a9036@gmail.com</p>
-        <MdEmail className='text-xl' />
+        <MdEmail className="text-xs" />
       </div>
-      <div className='flex justify-end space-x-3'>
-        <p>09104008616</p>
+      <div className="flex justify-end space-x-3">
+        <p className="text-xs">09104008616</p>
         <IoMdPhonePortrait />
       </div>
     </div>
