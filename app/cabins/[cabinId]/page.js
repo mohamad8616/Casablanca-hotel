@@ -102,7 +102,7 @@ export default async function Page({ params }) {
     return <div>Cabin not found.</div>;
   }
 
-  const { name, maxCapacity, regularPrice, discount, image } = cabin;
+  const { name, maxCapacity, regularPrice, discount, image } = cabin?.[0] || {};
 
   return (
     <main className="flex min-h-screen w-full flex-col items-center text-stone-700 sm:mt-10 md:justify-between">
