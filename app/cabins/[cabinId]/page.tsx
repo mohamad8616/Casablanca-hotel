@@ -11,8 +11,7 @@ interface PageProps {
 export default async function Page({ params }: PageProps) {
   const { cabinId } = params;
   const cabin = await getCabinByID(cabinId);
-  const { id, name, maxCapacity, regularPrice, discount, description, image } =
-    cabin?.[0];
+  const { name, maxCapacity, regularPrice, discount, image } = cabin?.[0];
   return (
     <main className="flex min-h-screen w-full flex-col items-center text-stone-700 sm:mt-10 md:justify-between">
       <section className="relative w-full grid-cols-2 items-start justify-center gap-5 px-2 py-5 tracking-wider shadow-lg shadow-stone-700/45 md:grid">

@@ -12,8 +12,7 @@ interface Cabin {
 }
 
 export default function CabinCard({ cabin }: { cabin: Cabin }) {
-  const { id, name, maxCapacity, regularPrice, discount, description, image } =
-    cabin;
+  const { id, name, maxCapacity, image } = cabin;
   return (
     <div className="my-5 h-96 w-full rounded-md border-stone-800 shadow-xl shadow-stone-600/30">
       <div className="relative h-4/5 w-full flex-1 rounded-md">
