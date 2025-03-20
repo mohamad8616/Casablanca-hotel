@@ -7,7 +7,7 @@ interface NavbarProps {
 export default function Navbar({ className }: NavbarProps) {
   return (
     <ul className="">
-      <section className={`justify-center gap-6 ${className}`}>
+      <section className={`justify-center gap-6 ${className} z-40`}>
         <li>
           <Link href="/">رستوران ها</Link>
         </li>

@@ -106,14 +106,14 @@ export default async function Page({ params }) {
 
   return (
     <main className="flex min-h-screen w-full flex-col items-center text-stone-700 sm:mt-10 md:justify-between">
-      <section className="relative w-full grid-cols-2 items-start justify-center gap-5 px-2 py-5 tracking-wider shadow-lg shadow-stone-700/45 md:grid">
+      <section className="relative w-full grid-cols-2 items-start justify-center gap-5 px-2 py-5 tracking-wider shadow-2xl shadow-stone-700/25 md:grid">
         <div className="relative h-48 w-full flex-1 sm:h-72 lg:h-[500px] lg:w-full">
           {image ? (
             <Image
               alt={`cabin ${name}`}
               src={image}
               fill
-              className="rounded-lg object-cover shadow-lg shadow-stone-700/45"
+              className="rounded-lg object-cover shadow-md shadow-stone-700/15"
             />
           ) : (
             <div className="flex h-full items-center justify-center bg-gray-200">
@@ -121,7 +121,7 @@ export default async function Page({ params }) {
             </div>
           )}
         </div>
-        <div className="flex h-full flex-col items-center justify-between space-y-3 px-4 py-3 text-start">
+        <div className="mt-6 flex h-full flex-col items-center justify-between space-y-3 px-4 py-3 text-start md:mt-0">
           <div className="w-full place-items-start">
             <div className="">
               <p className="text-sm text-stone-600 md:text-base">
@@ -164,7 +164,7 @@ export default async function Page({ params }) {
           <Link
             href="/reservation"
             aria-label="رزرو اتاق"
-            className="bottom-8 mx-auto mt-1 w-5/6 cursor-pointer place-content-start place-items-end bg-amber-600 px-2 py-0.5 pt-[1px] text-center text-sm text-amber-50 md:w-1/6 md:text-base"
+            className="bottom-8 mx-auto mt-1 w-5/6 cursor-pointer place-content-start place-items-end rounded bg-amber-600 px-2 py-0.5 pt-[1px] text-center text-sm text-amber-50 md:w-1/6 md:text-base"
           >
             رزرو
           </Link>
