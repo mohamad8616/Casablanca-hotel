@@ -1,7 +1,7 @@
 import { getCabins } from "@/app/_lib/database";
 import HomeIntro from "./_components/HomeIntro";
 import HotelStatus from "./_components/HotelStatus";
-import Slider from "./about/Slider";
+import Slider from "./_components/Slider";
 
 export default async function Home() {
   const cabins = await getCabins();
@@ -12,10 +12,10 @@ export default async function Home() {
       <HomeIntro />
       <HotelStatus />
 
-      <section className="h-min-200 mx-4 my-20 w-11/12 grid-cols-2 items-center justify-between gap-7 space-y-10 sm:mx-2 sm:my-40 sm:w-3/4 md:mx-0 md:grid md:space-y-0">
+      <section className="h-min-200 mx-4 my-20 w-12/12 grid-cols-2 items-center justify-between gap-7 space-y-10 sm:mx-2 sm:my-40 sm:w-3/4 md:mx-0 md:grid md:space-y-0">
         <Slider cabinImages={cabinImages} />
 
-        <div className="w-full">
+        <div className="mx-5 w-11/12">
           <p>
             این کابین‌های لوکس و چوبی با طراحی مدرن و امکانات کامل، تجربه‌ای
             بی‌نظیر از اقامت را برای شما فراهم می‌کنند.

@@ -1,7 +1,6 @@
 export default function LanguageSelect() {
   return (
-    <div className="text-center text-sm md:text-start">
-      {/* <p className="ml-4 hidden sm:block">انتخاب زبان</p> */}
+    <div className="flex text-center text-xs md:text-start">
       <button className="cursor-pointer text-xs duration-300 hover:text-blue-400">
         English
       </button>
