@@ -9,6 +9,7 @@ import Image from "next/image";
 import TextLogo from "./TextLogo";
 import SmallHeader from "./SmallHeader";
 import Link from "next/link";
+import LargeNavbar from "./LargeNavbar";
 
 export default async function Header() {
   const session = await auth();
@@ -87,7 +88,7 @@ export default async function Header() {
           </div>
         )}
       </SmallHeader>
-      <header className="relative z-10 hidden max-h-56 min-h-26 w-full flex-1 flex-col items-center justify-between overflow-hidden md:flex">
+      {/* <header className="relative z-10 hidden max-h-56 min-h-26 w-full flex-1 flex-col items-center justify-between overflow-hidden md:flex">
         <Image
           src={picHeader}
           alt="Header background image"
@@ -136,33 +137,24 @@ export default async function Header() {
             </ul>
           </nav>
         </div>
-      </header>
+      </header> */}
+      <LargeNavbar>
+        {session?.user && (
+          <div className="flex w-26 items-center justify-center gap-2">
+            <Image
+              src={session.user.image || ""}
+              alt="user image"
+              referrerPolicy="no-referrer"
+              className="mx-auto h-5 cursor-pointer rounded-full duration-200 hover:scale-125 sm:h-8 sm:w-8"
+              width={26} // Adjust width as needed
+              height={26} // Adjust height as needed
+            />
+            <span className="text-xs text-slate-800 sm:text-sm">
+              {session.user.name}
+            </span>
+          </div>
+        )}
+      </LargeNavbar>
     </>
   );
-}
-
-{
-  /* <p>span</p>
-<div className="absolute top-3/5 right-0 flex h-2/5 w-full items-center justify-between bg-slate-900/50 text-slate-100">
-  <ul className="flex h-full w-1/2 items-center justify-between bg-slate-300/20">
-    <li>
-    <Link href="#hero-section" className="text-xs">
-    <span className="text-base sm:text-2xl">#</span> معرفی هتل
-    </Link>
-    </li>
-    <li>
-      <Link href="#aboutCabins" className="text-xs">
-        <span className="text-base sm:text-2xl">#</span> درباره کابین
-        های ما
-      </Link>
-    </li>
-  </ul>
-  <div className="text-center text-xs text-slate-100">
-    <Link href="/account">ورود به حساب کاربری</Link>
-  </div>
-</div>*/
-}
-
-{
-  /* <SiHiltonhotelsandresorts className="mr-6 hidden text-5xl text-[#b5b5b5e2] sm:mr-17 sm:block sm:text-6xl" /> */
 }
