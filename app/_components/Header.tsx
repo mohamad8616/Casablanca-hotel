@@ -1,15 +1,10 @@
 import { auth } from "../_lib/auth";
-import ContactUs from "./ContactUs";
-import LanguageSelect from "./LanguageSelect";
 
-import picHeader from "@/public/pic1.jpg";
 import Image from "next/image";
 
 // import { SiHiltonhotelsandresorts } from "react-icons/si";
-import TextLogo from "./TextLogo";
-import SmallHeader from "./SmallHeader";
-import Link from "next/link";
 import LargeNavbar from "./LargeNavbar";
+import SmallHeader from "./SmallHeader";
 
 export default async function Header() {
   const session = await auth();
