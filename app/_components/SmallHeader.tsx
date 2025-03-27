@@ -6,11 +6,15 @@ import Image from "next/image";
 import picHeader from "@/public/pic1.jpg";
 import { useState } from "react";
 
-export default function SmallHeader() {
-  const [showNav, setShowNav]: boolean = useState(false);
+export default function SmallHeader({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  const [showNav, setShowNav] = useState(false);
   return (
     <header className="relative z-10 aspect-video max-h-56 min-h-26 w-full flex-1 overflow-hidden md:hidden">
-      <div className="absolute top-0 left-0 h-full w-full bg-slate-900/10"></div>
+      <div className="absolute top-0 left-0 h-full w-full bg-slate-900/10 px-1"></div>
       <Image
         src={picHeader}
         alt="Image for header"
@@ -18,11 +22,12 @@ export default function SmallHeader() {
         width={1000}
         height={2000}
       />
-      <div className="absolute top-0 right-0 flex h-full w-full flex-wrap items-center justify-between gap-2 bg-slate-900/60 px-6 text-center text-slate-100 hover:text-white">
+      <div className="absolute top-0 right-0 flex h-full w-full flex-wrap items-center justify-between gap-1 bg-slate-900/60 text-center text-slate-100 hover:text-white sm:px-6">
         <button className="cursor-pointer" onClick={() => setShowNav(true)}>
           <RxHamburgerMenu className="text-2xl text-slate-100 sm:text-4xl" />
         </button>
         <TextLogo />
+        {children}
       </div>
       {showNav && (
         <div className="fixed top-0 right-0 z-20 h-dvh w-full bg-slate-900/70">

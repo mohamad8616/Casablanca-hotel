@@ -4,7 +4,7 @@ export default function LanguageSelect() {
       <button className="cursor-pointer text-xs duration-300 hover:text-blue-400">
         English
       </button>
-      <span> / </span>
+      <span className="text-2xl"> / </span>
       <button className="cursor-pointer text-xs duration-300 hover:text-blue-400">
         فارسی
       </button>
