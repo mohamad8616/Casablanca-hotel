@@ -16,7 +16,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="">
+    <html lang="en" className="scroll-smooth">
       <body
         dir="rtl"
         className={`${myFont.className} antialiased dark:bg-stone-800 dark:text-stone-50`}

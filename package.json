@@ -9,13 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@kasraghoreyshi/calendar": "^0.0.5",
-    "@kasraghoreyshi/datepicker": "^0.1.4",
-    "@react-shamsi/calendar": "^0.2.5",
-    "@react-shamsi/datepicker": "^0.2.1",
     "@supabase/supabase-js": "^2.49.1",
     "keen-slider": "^6.8.6",
     "next": "15.2.2",
+    "next-auth": "^5.0.0-beta.25",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-icons": "^5.5.0"

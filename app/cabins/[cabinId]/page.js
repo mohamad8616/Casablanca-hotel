@@ -1,8 +1,7 @@
+import ReservationForm from "@/app/_components/ReservationForm";
 import { getCabinByID } from "@/app/_lib/database";
-import Calendar from "@/app/_components/Calendar";
 import Image from "next/image";
 import Link from "next/link";
-import ReservationForm from "@/app/_components/ReservationForm";
 
 export default async function Page({ params }) {
   const { cabinId } = params;
@@ -80,8 +79,7 @@ export default async function Page({ params }) {
           </Link>
         </div>
       </section>
-      <section className="flex h-2/5 w-full bg-stone-100 px-7 py-5">
-        <Calendar />
+      <section className="h-2/5 w-full grid-cols-2 bg-stone-100 px-7 py-5 md:grid">
         <ReservationForm />
       </section>
     </main>

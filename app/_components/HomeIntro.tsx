@@ -5,7 +5,10 @@ import pic3 from "@/public/pic3.jpg";
 import logo from "@/public/logo.png";
 export default function HomeIntro() {
   return (
-    <section id="hero-section" className="mt-25 w-10/12 grid-cols-2 md:grid">
+    <section
+      id="hero-section"
+      className="mt-15 w-10/12 grid-cols-2 md:mt-25 md:grid"
+    >
       <div className="h-auto p-1">
         <h1 className="text-center text-2xl">هتل کازابلانکا</h1>
         <h3 className="my-3 text-center text-xl">مکانی رویایی</h3>
