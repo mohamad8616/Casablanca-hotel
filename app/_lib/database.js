@@ -21,3 +21,26 @@ export async function getCabinByID(id) {
 
   return cabin;
 }
+
+export async function createUser(newGuest) {
+  const { data, error } = await supabase
+    .from("guests")
+    .insert([newGuest])
+    .select();
+
+  if (error) {
+    console.log(error);
+    throw new Error("Could not create a new user");
+  }
+  return data;
+}
+
+export async function getUser(email) {
+  let { data: guests, error } = await supabase.from("guests").select(email);
+
+  if (error) {
+    console.log(error);
+    throw new Error("Could not find the user");
+  }
+  return guests;
+}
