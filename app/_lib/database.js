@@ -22,25 +22,29 @@ export async function getCabinByID(id) {
   return cabin;
 }
 
-export async function createUser(newGuest) {
+export async function createGuest(newGuest) {
+  // console.log(newGuest);
   const { data, error } = await supabase
     .from("guests")
     .insert([newGuest])
     .select();
 
   if (error) {
-    console.log(error);
-    throw new Error("Could not create a new user");
+    console.error(error);
+    throw new Error("Guest could not be created");
   }
+
   return data;
 }
 
-export async function getUser(email) {
-  let { data: guests, error } = await supabase.from("guests").select(email);
+// Guests are uniquely identified by their email address
+export async function getGuest(email) {
+  const { data } = await supabase
+    .from("guests")
+    .select("*")
+    .eq("email", email)
+    .single();
 
-  if (error) {
-    console.log(error);
-    throw new Error("Could not find the user");
-  }
-  return guests;
+  // No error here! We handle the possibility of no guest in the sign in callback
+  return data;
 }

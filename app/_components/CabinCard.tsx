@@ -20,7 +20,7 @@ export default function CabinCard({ cabin }: { cabin: Cabin }) {
           <Image
             src={image}
             alt={`Cabin ${name}`}
-            className="z-10 flex-1 rounded-md object-cover"
+            className="flex-1 rounded-md object-cover"
             fill
           />
         ) : (
