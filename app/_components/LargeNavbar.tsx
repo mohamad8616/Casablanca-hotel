@@ -37,16 +37,13 @@ export default function LargeNavbar({ session }: LargeHeaderProps) {
         <nav className="flex h-full w-full items-center justify-center">
           <ul className="flex h-auto w-8/12 items-center justify-between gap-x-5 rounded-tl-full rounded-br-full bg-slate-50/80 px-5">
             <li className="flex cursor-pointer items-center py-2 text-base text-slate-800 duration-200 hover:text-amber-600">
-              <Link href="/">رستوران ها</Link>
-            </li>
-            <li className="flex cursor-pointer items-center py-2 text-base text-slate-800 duration-200 hover:text-amber-600">
               <Link href="/about">درباره مجموعه</Link>
             </li>
             <li className="flex cursor-pointer items-center py-2 text-base text-slate-800 duration-200 hover:text-amber-600">
               <Link href="/cabins">اتاق ها</Link>
             </li>
             <li className="flex cursor-pointer items-center py-2 text-base text-slate-800 duration-200 hover:text-amber-600">
-              <Link href="/cabins">تماس با ما</Link>
+              <Link href="/contact">تماس با ما</Link>
             </li>
             {/* {children} */}
             {session?.user ? (

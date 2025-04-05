@@ -1,9 +1,16 @@
 import { signOutAction } from "../_lib/actions";
 
-export default function SignOutButton() {
+export default function SignOutButton({ classname }: { classname?: string }) {
   return (
     <form action={signOutAction}>
-      <button className="mb-20 w-11/12 rounded-lg bg-indigo-800/80 px-2 py-1 text-indigo-50 duration-200 hover:bg-indigo-500 lg:text-lg">
+      <button
+        className={`mb-20 hidden w-full cursor-pointer rounded-lg bg-red-600 py-1 text-sm text-white duration-200 hover:bg-red-500 md:block md:px-1 lg:text-base ${classname}`}
+      >
+        خروج از حساب کاربری
+      </button>
+      <button
+        className={`cursor-pointer text-sm text-red-600 hover:text-red-700 md:hidden ${classname}`}
+      >
         خروج از حساب کاربری
       </button>
     </form>

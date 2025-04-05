@@ -68,11 +68,6 @@ export default function SmallHeader({ session }: SmallHeaderProps) {
           </div>
           <ul className="w-full divide-y-2 divide-slate-200/30 px-10 py-6 text-start text-sm text-slate-200/80 sm:text-base">
             <li className="my-8 flex cursor-pointer items-center py-2 hover:text-amber-600">
-              <Link onClick={() => setShowNav(false)} href="/">
-                رستوران ها
-              </Link>
-            </li>
-            <li className="my-8 flex cursor-pointer items-center py-2 hover:text-amber-600">
               <Link onClick={() => setShowNav(false)} href="/about">
                 درباره مجموعه
               </Link>
