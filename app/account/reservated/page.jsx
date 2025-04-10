@@ -12,7 +12,7 @@ export default async function Page() {
   console.log(bookings);
 
   return (
-    <main className="mx-2 my-4 h-[440px] w-full space-y-10 overflow-scroll p-4 text-slate-800">
+    <main className="mx-2 my-4 h-[440px] w-full space-y-10 overflow-y-scroll p-4 text-slate-800">
       <h1 className="text-center text-base font-semibold tracking-wide sm:text-base md:text-lg">
         اتاق های رزرو شده
       </h1>

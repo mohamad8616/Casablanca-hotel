@@ -15,7 +15,7 @@ export default async function ReservationCard({
   }
   const date = new Date();
 
-  const [{ image, name }] = cabin;
+  const { image, name } = cabin;
 
   return (
     <>

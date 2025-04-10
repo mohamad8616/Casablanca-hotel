@@ -1,10 +1,8 @@
-
-
 export interface Session {
   user: {
-    name: string;
-    email: string;
-    image: string;
+    name?: string | null;
+    email?: string | null;
+    image?: string | null;
   };
   expires: string; // ISO 8601 date string
   guestId: number;
