@@ -6,7 +6,7 @@ import Image from "next/image";
 import picHeader from "@/public/pic1.jpg";
 import { useEffect, useState } from "react";
 
-interface SmallHeaderProps {
+export interface SessionProps {
   session: {
     user?: {
       image?: string;
@@ -17,7 +17,7 @@ interface SmallHeaderProps {
   } | null;
 }
 
-export default function SmallHeader({ session }: SmallHeaderProps) {
+export default function SmallHeader({ session }: SessionProps) {
   const [showNav, setShowNav] = useState(false);
 
   // Disable scrolling when the navbar is open

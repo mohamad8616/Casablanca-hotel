@@ -1,52 +1,44 @@
 "use client";
+import { Cabin } from "@/app/_lib/dataType";
+
 const inputClass =
-  "rounded-full border-3 border-stone-700/50 bg-stone-100 px-3 py-1 ";
-export default function ReservationForm() {
+  "rounded-full border-3 border-stone-700/50 bg-stone-100 px-3 py-1 w-1/3";
+
+export default function ReservationForm({ cabin }: { cabin: Cabin }) {
+  // Ensure maxCapacity is a number and has a default value
+  const maxCapacity = cabin?.maxCapacity;
+
+  console.log("maxCapacity:", maxCapacity);
+  console.log(
+    "Options:",
+    Array.from({ length: maxCapacity }, (_, i) => i + 1),
+  );
+
   return (
     <form className="w-full space-y-6 bg-stone-50 p-2">
       <div className="flex justify-between">
-        <label htmlFor="name">نام و نام خانوادگی</label>
-        <input
-          type="text"
-          id="name"
-          name="name"
-          className={inputClass}
-          placeholder="نام و نام خانوادگی"
-        />
-      </div>
-      <div className="flex justify-between">
-        <label htmlFor="phoneNumber">شماره تلفن</label>
-        <input
-          type="number"
-          id="phoneNumber"
-          className={inputClass}
-          placeholder="شمار همراه"
-        />
-      </div>
-      <div className="flex justify-between">
         <label htmlFor="numGuests">تعداد مهمان</label>
-        <input
-          type="number"
+        <select
           id="numGuests"
           name="numGuests"
-          className={inputClass}
-          placeholder="تعداد مهمانان"
-        />
+          className={`${inputClass} cursor-pointer`}
+        >
+          {Array.from({ length: maxCapacity }, (_, i) => (
+            <option key={i} value={i + 1}>
+              {i + 1}
+            </option>
+          ))}
+        </select>
       </div>
       <div className="flex justify-between">
-        <label htmlFor="numDates">چند روز رزرو میکنید</label>
-        <input
-          type="number"
-          id="numDates"
+        <label htmlFor="description">توضیحات </label>
+        <textarea
+          id="description"
+          name="description"
           className={inputClass}
-          placeholder="چند روز رزرو می کنید؟"
+          placeholder="توضیحات"
         />
       </div>
-
-      {/* <div>
-        <label htmlFor="phoneNumber"></label>
-        <input type="number" id="phoneNumber" className="bg-stone-100" />
-      </div> */}
     </form>
   );
 }

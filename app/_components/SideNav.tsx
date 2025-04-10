@@ -1,7 +1,8 @@
-import Link from "next/link";
-import SignOutButton from "./SignOutButton";
 import Image from "next/image";
+import Link from "next/link";
 import { auth } from "../_lib/auth";
+import SignOutButton from "./SignOutButton";
+import SmallSideNav from "./SmallSideNav";
 
 export default async function SideNav() {
   const session = await auth();
@@ -45,31 +46,7 @@ export default async function SideNav() {
         </ul>
       </aside>
       <nav className="mx-auto mt-3 flex w-full items-center justify-center rounded-tl-3xl rounded-br-3xl px-1 py-2 text-sm text-slate-700 shadow-xl shadow-slate-800/10 md:hidden">
-        <ul className="flex w-full items-center justify-between gap-2 text-xs">
-          <Link
-            href="/account"
-            className="flex w-auto items-center justify-center gap-0.5"
-          >
-            <Image
-              src={session?.user?.image || ""}
-              alt="user image"
-              referrerPolicy="no-referrer"
-              className="mx-auto h-5 cursor-pointer rounded-full duration-200 hover:scale-125 sm:h-8 sm:w-8"
-              width={26} // Adjust width as needed
-              height={26} // Adjust height as needed
-            />
-            <span className="text-xs text-slate-800 duration-200 hover:text-blue-600">
-              {session?.user?.name || "Guest"}
-            </span>
-          </Link>
-          <li>
-            <Link href="/account">پروفایل</Link>
-          </li>
-
-          <li>
-            <Link href="/account/reservated">رزرو شده ها</Link>
-          </li>
-        </ul>
+        <SmallSideNav session={session} />
       </nav>
     </>
   );

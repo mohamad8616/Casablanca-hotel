@@ -4,7 +4,7 @@ export default function SignOutButton({ classname }: { classname?: string }) {
   return (
     <form action={signOutAction}>
       <button
-        className={`mb-20 hidden w-full cursor-pointer rounded-lg bg-red-600 py-1 text-sm text-white duration-200 hover:bg-red-500 md:block md:px-1 lg:text-base ${classname}`}
+        className={`mb-20 hidden w-full cursor-pointer rounded-lg bg-red-600 py-1 text-sm text-white duration-200 hover:bg-red-500 md:block md:px-0.5 lg:text-base ${classname}`}
       >
         خروج از حساب کاربری
       </button>
