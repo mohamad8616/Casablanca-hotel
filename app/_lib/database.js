@@ -13,18 +13,48 @@ export async function getBookings(guestId) {
 }
 
 export async function getCabins() {
-  let { data: cabins, error } = await supabase.from("cabins").select("*");
-  if (error) {
-    console.error("Error fetching cabins:", error);
-    return null; // Handle the error appropriately
+  let retries = 3;
+  let lastError = null;
+
+  while (retries > 0) {
+    try {
+      let { data: cabins, error } = await supabase.from("cabins").select("*");
+
+      if (error) {
+        console.error(
+          `Error fetching cabins (attempt ${4 - retries}/3):`,
+          error,
+        );
+        lastError = error;
+        retries--;
+        await new Promise((resolve) =>
+          setTimeout(resolve, 1000 * (4 - retries)),
+        );
+        continue;
+      }
+
+      return cabins;
+    } catch (err) {
+      console.error(
+        `Exception fetching cabins (attempt ${4 - retries}/3):`,
+        err,
+      );
+      lastError = err;
+      retries--;
+      await new Promise((resolve) => setTimeout(resolve, 1000 * (4 - retries)));
+    }
   }
-  return cabins;
+
+  console.error(
+    "All retry attempts failed for getCabins. Last error:",
+    lastError,
+  );
+  return null;
 }
 
 export async function getCabinByID(id) {
   console.log("Fetching cabin with ID:", id);
 
-  // Add retry logic
   let retries = 3;
   let lastError = null;
 
@@ -33,7 +63,8 @@ export async function getCabinByID(id) {
       let { data: cabin, error } = await supabase
         .from("cabins")
         .select("*")
-        .eq("id", id); // Filter by the provided id
+        .eq("id", id)
+        .single();
 
       if (error) {
         console.error(
@@ -42,7 +73,6 @@ export async function getCabinByID(id) {
         );
         lastError = error;
         retries--;
-        // Wait before retrying (exponential backoff)
         await new Promise((resolve) =>
           setTimeout(resolve, 1000 * (4 - retries)),
         );
@@ -58,12 +88,14 @@ export async function getCabinByID(id) {
       );
       lastError = err;
       retries--;
-      // Wait before retrying (exponential backoff)
       await new Promise((resolve) => setTimeout(resolve, 1000 * (4 - retries)));
     }
   }
 
-  console.error("All retry attempts failed. Last error:", lastError);
+  console.error(
+    "All retry attempts failed for getCabinByID. Last error:",
+    lastError,
+  );
   return null;
 }
 
