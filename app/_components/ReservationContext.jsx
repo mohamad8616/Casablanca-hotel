@@ -1,33 +1,24 @@
 "use client";
-import React, { createContext, useState, useContext } from "react";
 
-// Create the ReservationContext
+import { createContext, useContext, useState } from "react";
+
 const ReservationContext = createContext();
 
-// Create a provider component
-export const ReservationProvider = ({ children }) => {
-  const [startDate, setStartDate] = useState(null);
-  const [endDate, setEndDate] = useState(null);
+const initialState = [];
 
-  const clearDates = () => {
-    setStartDate(null);
-    setEndDate(null);
-  };
-
+function ReservationProvider({ children }) {
+  const [range, setRange] = useState(initialState);
+  const resetRange = () => setRange(initialState);
   return (
-    <ReservationContext.Provider
-      value={{ startDate, endDate, setStartDate, setEndDate, clearDates }}
-    >
+    <ReservationContext.Provider value={{ range, setRange, resetRange }}>
       {children}
     </ReservationContext.Provider>
   );
-};
+}
+export default ReservationProvider;
 
-// Custom hook to use the ReservationContext
-export const useReservation = () => {
+export function useReservation() {
   const context = useContext(ReservationContext);
-  if (!context) {
-    throw new Error("useReservation must be used within a ReservationProvider");
-  }
+  if (!context) throw new Error("The context used out of the provider");
   return context;
-};
+}

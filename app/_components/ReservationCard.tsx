@@ -13,7 +13,7 @@ export default async function ReservationCard({
   if (!cabin) {
     throw new Error("Cabin not found");
   }
-  const date = new Date();
+  // const date = new Date();
 
   const { image, name } = cabin;
 
@@ -31,9 +31,11 @@ export default async function ReservationCard({
             </h2>
             <p className="text-sm text-slate-700">
               <span> از تاریخ </span>
-              <span> {format(reservation.startDate, "MM/dd")}</span>
+              {/* <span> {format(reservation.s  tartDate, "MM/dd")}</span> */}
+              <span> {reservation.startDate}</span>
               <span> تا </span>
-              <span> {format(reservation.endDate, "MM/dd")}</span>
+              {/* <span> {format(reservation.endDate, "MM/dd")}</span> */}
+              <span> {reservation.endDate}</span>
             </p>
             <div className="flex w-full justify-between gap-5 px-1">
               <span className="text-sm font-semibold text-slate-600">
@@ -45,9 +47,9 @@ export default async function ReservationCard({
             </div>
           </div>
           <div className="flex h-full flex-col justify-between text-end">
-            <span className="text-sm">
+            {/* <span className="text-sm">
               {date < new Date(reservation.endDate) ? "فعال" : "منقضی شده"}
-            </span>
+            </span> */}
             <span className="text-xs text-slate-500">
               رزرو شده در{" "}
               <span>{format(reservation.created_at, "yyyy/MM/dd")}</span>
@@ -74,9 +76,11 @@ export default async function ReservationCard({
               </h2>
               <p className="text-sm text-slate-700">
                 <span> از تاریخ </span>
-                <span> {format(reservation.startDate, "MM/dd")}</span>
+                <span> {reservation.startDate}</span>
+                {/* <span> {format(reservation.startDate, "MM/dd")}</span> */}
                 <span> تا </span>
-                <span> {format(reservation.endDate, "MM/dd")}</span>
+                {/* <span> {format(reservation.endDate, "MM/dd")}</span> */}
+                <span> {reservation.endDate}</span>
               </p>
             </div>
             <div className="flex w-full flex-col-reverse items-end justify-between gap-5 px-1">

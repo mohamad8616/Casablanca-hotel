@@ -5,6 +5,10 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import Image from "next/image";
 import picHeader from "@/public/pic1.jpg";
 import { useEffect, useState } from "react";
+import { IoHomeOutline } from "react-icons/io5";
+import { BsQuestionSquare } from "react-icons/bs";
+import { GiWoodCabin } from "react-icons/gi";
+import { IoMdContacts } from "react-icons/io";
 
 export interface SessionProps {
   session: {
@@ -29,6 +33,9 @@ export default function SmallHeader({ session }: SessionProps) {
     }
   }, [showNav]);
 
+  const navLinkClass = "flex items-center gap-x-2";
+  const navLiClass =
+    "my-8 flex cursor-pointer items-center py-2 hover:text-amber-600";
   return (
     <header className="relative z-10 aspect-video max-h-56 min-h-26 w-full flex-1 overflow-hidden md:hidden">
       <div className="absolute top-0 left-0 h-full w-full bg-slate-900/10 px-1"></div>
@@ -67,19 +74,52 @@ export default function SmallHeader({ session }: SessionProps) {
             </button>
           </div>
           <ul className="w-full divide-y-2 divide-slate-200/30 px-10 py-6 text-start text-sm text-slate-200/80 sm:text-base">
-            <li className="my-8 flex cursor-pointer items-center py-2 hover:text-amber-600">
-              <Link onClick={() => setShowNav(false)} href="/about">
-                درباره مجموعه
+            <li className={navLiClass}>
+              <Link
+                onClick={() => setShowNav(false)}
+                href="/"
+                className={navLinkClass}
+              >
+                <span>
+                  <IoHomeOutline className="inline text-xl" />
+                </span>
+                <span>صفحه اصلی</span>
               </Link>
             </li>
-            <li className="my-8 flex cursor-pointer items-center py-2 hover:text-amber-600">
-              <Link onClick={() => setShowNav(false)} href="/cabins">
-                اتاق ها
+            <li className={navLiClass}>
+              <Link
+                onClick={() => setShowNav(false)}
+                href="/about"
+                className={navLinkClass}
+              >
+                <span>
+                  <BsQuestionSquare className="inline text-xl" />
+                </span>
+                <span>درباره مجموعه</span>
               </Link>
             </li>
-            <li className="my-8 flex cursor-pointer items-center py-2 hover:text-amber-600">
-              <Link onClick={() => setShowNav(false)} href="/cabins">
-                تماس با ما
+            <li className={navLiClass}>
+              <Link
+                onClick={() => setShowNav(false)}
+                href="/cabins"
+                className={navLinkClass}
+              >
+                <span>
+                  <GiWoodCabin className="inline text-xl" />
+                </span>
+                <span>اتاق ها</span>
+              </Link>
+            </li>
+            <li className={navLiClass}>
+              <Link
+                onClick={() => setShowNav(false)}
+                href="/cabins"
+                className={navLinkClass}
+              >
+                <span>
+                  <IoMdContacts className="inline text-xl" />
+                </span>
+                <span>تماس با ما</span>
               </Link>
             </li>
           </ul>

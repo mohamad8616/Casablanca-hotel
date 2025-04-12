@@ -1,44 +1,144 @@
 "use client";
 import { Cabin } from "@/app/_lib/dataType";
 
+import DateSelector from "./DateSelector";
+import { differenceInCalendarDays } from "date-fns-jalali";
+import { useReservation } from "./ReservationContext";
+import { createBooking } from "../_lib/actions";
+
 const inputClass =
-  "rounded-full border-3 border-stone-700/50 bg-stone-100 px-3 py-1 w-1/3";
+  "rounded-md border-3 border-stone-700/50 bg-stone-100 px-3 py-1 ";
+
+// Create a wrapper function to match the expected parameter structure
 
 export default function ReservationForm({ cabin }: { cabin: Cabin }) {
   // Ensure maxCapacity is a number and has a default value
-  const maxCapacity = cabin?.maxCapacity;
 
-  console.log("maxCapacity:", maxCapacity);
-  console.log(
-    "Options:",
-    Array.from({ length: maxCapacity }, (_, i) => i + 1),
-  );
+  const { maxCapacity, regularPrice, discount, id: cabinId } = cabin;
+  const { range, resetRange } = useReservation();
 
+  const numDays: number | string =
+    range.length > 1
+      ? Math.abs(differenceInCalendarDays(range[0], range[1]))
+      : "انتخاب نشده";
+
+  const rial = "text-xs";
+
+  const totalPrice: number =
+    typeof numDays === "number" ? numDays * regularPrice : 0;
+
+  const startDate = range[0];
+  const endDate = range[1];
+
+  const bookingData = {
+    cabinId,
+    startDate: startDate?.format("YYYY/MM/DD"),
+    endDate: endDate?.format("YYYY/MM/DD"),
+    totalPrice,
+    numNights: numDays,
+  };
+  const createBookingwithData = createBooking.bind(null, bookingData);
   return (
-    <form className="w-full space-y-6 bg-stone-50 p-2">
-      <div className="flex justify-between">
-        <label htmlFor="numGuests">تعداد مهمان</label>
-        <select
-          id="numGuests"
-          name="numGuests"
-          className={`${inputClass} cursor-pointer`}
-        >
-          {Array.from({ length: maxCapacity }, (_, i) => (
-            <option key={i} value={i + 1}>
-              {i + 1}
-            </option>
-          ))}
-        </select>
-      </div>
-      <div className="flex justify-between">
-        <label htmlFor="description">توضیحات </label>
-        <textarea
-          id="description"
-          name="description"
-          className={inputClass}
-          placeholder="توضیحات"
-        />
-      </div>
-    </form>
+    <section
+      id="reservation"
+      className="mx-auto h-auto w-8/12 flex-col items-center justify-between gap-6 px-10 py-14 md:flex"
+    >
+      <form
+        action={createBookingwithData}
+        className="h-full w-full space-y-6 bg-stone-50 p-2"
+      >
+        <section className="flex h-full w-3/3 items-start justify-between gap-4">
+          <div className="flex h-[300px] w-full justify-start rounded-md bg-stone-50 p-4">
+            <div className="flex h-full w-full flex-col items-center justify-between">
+              <div className="flex w-full justify-between gap-4">
+                <span>
+                  از:{" "}
+                  {startDate?.format?.("YYYY/MM/DD") || (
+                    <button className="font-semibold">..../../..</button>
+                  )}
+                </span>
+                <span>
+                  تا:{"    "}
+                  {endDate?.format?.("YYYY/MM/DD") || (
+                    <button className="font-semibold">..../../..</button>
+                  )}
+                </span>
+              </div>
+              <p className="flex w-full justify-between">
+                تعداد روز ها:
+                <span>{numDays} روز</span>
+              </p>
+              <div className="flex w-full justify-between">
+                <label htmlFor="numGuests">تعداد مهمان</label>
+                <select
+                  id="numGuests"
+                  required
+                  name="numGuests"
+                  className={`${inputClass} w-16 cursor-pointer border-none px-0.5 text-center`}
+                >
+                  {Array.from({ length: maxCapacity }, (_, i) => (
+                    <option key={i} value={i + 1}>
+                      {i + 1}
+                    </option>
+                  ))}
+                </select>
+              </div>
+              <div className="flex w-full flex-col justify-between space-y-3">
+                <p className="flex w-full justify-between">
+                  <span> قیمت بر حسب روز: </span>
+                  <span>
+                    {totalPrice ? totalPrice : ""}{" "}
+                    <span className={rial}>ریال </span>
+                  </span>
+                </p>
+                <p className="flex w-full justify-between">
+                  تخفیف:{" "}
+                  <span>
+                    {discount ? discount : ""}
+                    <span className={rial}> ریال </span>
+                  </span>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <DateSelector />
+        </section>
+        <div className="flex justify-between">
+          <label htmlFor="observations">توضیحات </label>
+          <textarea
+            id="observations"
+            name="observations"
+            className={`${inputClass} h-20 w-2/5`}
+            placeholder="توضیحات"
+          />
+        </div>
+        <div className="flex w-full items-center justify-between rounded-md bg-yellow-500 px-4 py-5 font-bold">
+          <div className="flex gap-2 text-lg">
+            <span className="tracking-wide">قیمت نهایی با تخفیف:</span>
+            <span>
+              {totalPrice ? totalPrice - discount : ""}
+              <span className={rial}> ریال </span>
+            </span>
+          </div>
+          <div className="flex gap-2">
+            <button
+              className="cursor-pointer rounded-md border-2 border-stone-700/60 px-2 py-1 text-xs text-stone-600 duration-200 hover:bg-stone-800/70 hover:text-stone-100"
+              onClick={() => resetRange()}
+            >
+              حذف رزرو
+            </button>
+
+            <button
+              type="submit"
+              className="focus:ring-opacity-50 cursor-pointer rounded-md bg-blue-800 px-4 py-2 font-light text-white duration-200 hover:bg-blue-600 focus:bg-stone-800 focus:ring-2 focus:ring-stone-800 focus:outline-none disabled:cursor-default disabled:bg-stone-400 disabled:text-stone-700"
+              disabled={!startDate || !endDate}
+            >
+              رزرو
+            </button>
+          </div>
+        </div>
+      </form>
+    </section>
   );
 }
