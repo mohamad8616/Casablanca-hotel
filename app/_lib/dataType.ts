@@ -33,4 +33,23 @@ export interface Cabin  {
     discount: number;
     description: string;
     image: string;
-  }
+}
+  export interface CabinCard {
+  id: number;
+  name: string;
+  maxCapacity: number;
+  regularPrice: number;
+  discount: number;
+  description: string;
+  image: string | null;
+}
+export interface LargeHeaderProps {
+  session: {
+    user?: {
+      image?: string;
+      name?: string;
+      email: string;
+      id: number;
+    };
+  } | null;
+}

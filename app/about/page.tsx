@@ -1,5 +1,10 @@
 import Slider from "../_components/Slider";
 
+export const metadata = {
+  title: "درباره مجموعه | هتل جنگلی",
+  description: "درباره مجموعه هتل جنگلی",
+};
+
 export default function Page() {
   return (
     <main className="flex h-auto flex-col items-center justify-between bg-stone-50">

@@ -113,7 +113,7 @@ export default function SmallHeader({ session }: SessionProps) {
             <li className={navLiClass}>
               <Link
                 onClick={() => setShowNav(false)}
-                href="/cabins"
+                href="#contactUs"
                 className={navLinkClass}
               >
                 <span>

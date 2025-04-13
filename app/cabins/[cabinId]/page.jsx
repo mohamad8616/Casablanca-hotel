@@ -5,20 +5,26 @@ import Image from "next/image";
 import Link from "next/link";
 import { Suspense } from "react";
 
+export async function generateMetadata({ params }) {
+  const { cabinId } = params;
+  const cabinData = await getCabinByID(cabinId);
+  const { name } = cabinData;
+  return {
+    title: name ? `کابین شماره ${name}` : "کابین یافت نشد",
+    description: "رزرو کابین ",
+  };
+}
+
 export default async function Page({ params }) {
   const { cabinId } = params;
-  console.log("Page component received cabinId:", cabinId);
 
   try {
-    console.log("Attempting to fetch cabin data...");
     const cabinData = await getCabinByID(cabinId);
-    console.log("Cabin data in page component:", cabinData);
 
     // Handle both array and single object responses
     const cabin = Array.isArray(cabinData) ? cabinData[0] : cabinData;
 
     if (!cabin) {
-      console.log("No cabin found with ID:", cabinId);
       return (
         <div className="flex min-h-screen items-center justify-center">
           <p className="text-xl text-stone-700">کابین مورد نظر یافت نشد.</p>

@@ -22,6 +22,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/cabins/[cabinId]/page.jsx", "app/_components/HomeSlider.jsx", "app/_lib/auth.js", "app/_components/DateSelector.jsx", "app/_components/Reservation.tsx", "app/_components/ReservationContext.jsx", "app/account/reservated/page.jsx", "app/_lib/actions.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/cabins/[cabinId]/page.jsx", "app/_components/HomeSlider.jsx", "app/_lib/auth.js", "app/_components/DateSelector.jsx", "app/_components/Reservation.tsx", "app/_components/ReservationContext.jsx", "app/account/reservated/page.jsx", "app/_lib/actions.js", "app/not-found.jsx"],
   "exclude": ["node_modules"],
 }

@@ -8,21 +8,12 @@ import { IoHomeOutline } from "react-icons/io5";
 import { BsQuestionSquare } from "react-icons/bs";
 import { GiWoodCabin } from "react-icons/gi";
 import { IoMdContacts } from "react-icons/io";
+import { LargeHeaderProps } from "../_lib/dataType";
 
-interface LargeHeaderProps {
-  session: {
-    user?: {
-      image?: string;
-      name?: string;
-      email: string;
-      id: number;
-    };
-  } | null;
-}
 const navLiClass =
   "cursor-pointer items-center py-2 text-base text-slate-800 duration-200 hover:text-amber-600";
 
-const navLinkClass = "flex items-center gap-x-2";
+const navLinkClass = "flex items-center md:gap-x-1 lg:gap-x-2";
 export default function LargeNavbar({ session }: LargeHeaderProps) {
   return (
     <header className="relative z-10 hidden max-h-56 min-h-26 w-full flex-1 flex-col items-center justify-between overflow-hidden md:flex">
@@ -43,7 +34,7 @@ export default function LargeNavbar({ session }: LargeHeaderProps) {
       </div>
       <div className="absolute top-2/3 right-0 flex h-1/3 w-full flex-wrap items-center justify-between gap-2 bg-slate-900/55 text-center text-slate-100 hover:text-white">
         <nav className="flex h-full w-full items-center justify-center">
-          <ul className="flex h-auto w-8/12 items-center justify-between gap-x-5 rounded-tl-full rounded-br-full bg-slate-50/80 px-7">
+          <ul className="flex h-auto items-center justify-between gap-x-5 rounded-tl-full rounded-br-full bg-slate-50/80 px-7 md:w-10/12 lg:w-8/12">
             <li className={navLiClass}>
               <Link href="/" className={navLinkClass}>
                 {" "}
