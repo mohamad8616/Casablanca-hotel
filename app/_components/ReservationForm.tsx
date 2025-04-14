@@ -6,6 +6,7 @@ import { differenceInCalendarDays } from "date-fns-jalali";
 import { useReservation } from "./ReservationContext";
 import { createBooking } from "../_lib/actions";
 import { useState } from "react";
+import Modal from "./Modal";
 
 const inputClass =
   "rounded-md border-3 border-stone-700/50 bg-stone-100 px-3 py-1 ";
@@ -34,8 +35,8 @@ export default function ReservationForm({ cabin }: { cabin: Cabin }) {
 
   const bookingData = {
     cabinId,
-    startDate: startDate?.format("YYYY/MM/DD"),
-    endDate: endDate?.format("YYYY/MM/DD"),
+    startDate: startDate,
+    endDate: endDate,
     totalPrice,
     numNights: numDays,
   };
@@ -216,17 +217,15 @@ export default function ReservationForm({ cabin }: { cabin: Cabin }) {
               </div>
             </div>
             {showCalendar && (
-              <div className="absolute top-0 left-0 z-10 flex h-full w-full items-center justify-center bg-stone-500/50">
-                <div className="flex h-2/3 w-11/12 flex-col items-center justify-center space-y-4 rounded-md bg-stone-100 px-1">
-                  <DateSelector />
-                  <span
-                    onClick={() => setShowCalendar(false)}
-                    className="rounded-md border-1 border-stone-800 px-2 py-1 text-sm text-stone-800 duration-200 hover:border-stone-600 hover:text-stone-600"
-                  >
-                    تایید و خروج &rarr;
-                  </span>
-                </div>
-              </div>
+              <Modal setShowCalendar={setShowCalendar}>
+                <DateSelector />
+                <span
+                  onClick={() => setShowCalendar(false)}
+                  className="rounded-md border-1 border-stone-800 px-2 py-1 text-sm text-stone-800 duration-200 hover:border-stone-600 hover:text-stone-600"
+                >
+                  تایید و خروج &rarr;
+                </span>
+              </Modal>
             )}
           </section>
           <div className="flex justify-between">

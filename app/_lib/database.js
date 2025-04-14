@@ -13,9 +13,6 @@ export async function getBookings(guestId) {
 }
 
 export async function getCabins() {
-  // Artificial delay to demonstrate loading state
-  await new Promise((resolve) => setTimeout(resolve, 2000)); // 2 second delay
-
   let retries = 3;
   let lastError = null;
 

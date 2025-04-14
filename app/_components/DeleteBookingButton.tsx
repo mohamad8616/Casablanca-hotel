@@ -27,7 +27,7 @@ export default function DeleteBookingButton({
   ) : (
     <button
       onClick={handleDeleteBooking}
-      className="h-full w-16 cursor-pointer rounded-md border-none bg-red-500/90 px-1 text-sm text-red-50"
+      className="h-full w-16 cursor-pointer border-none bg-red-500 px-1.5 py-0.5 text-sm text-red-50"
       disabled={isPending}
     >
       {isPending ? "حذف..." : "حذف"}

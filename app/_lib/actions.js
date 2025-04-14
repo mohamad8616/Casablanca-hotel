@@ -13,6 +13,11 @@ export async function signOutAction() {
 }
 
 export async function DeleteBooking(bookingId) {
+  const session = await auth();
+  if (!session) {
+    throw new Error("Unauthorized users could not create a booking");
+  }
+
   const { error } = await supabase
     .from("bookings")
     .delete()
@@ -49,5 +54,41 @@ export async function createBooking(bookingData, formData) {
     throw new Error("Booking could not be created");
   }
   revalidatePath("account/reservated", "page");
-  redirect("/account/bvihbsdinvsdknvohnzdbv sklmvmfnbfbjfdub");
+  redirect("/account/bvihbsdinvsdknvohnzdbvsklmvmfnbfbjfdub");
+}
+
+export async function updateBooking(bookingData, formData) {
+  // AUTHENTICATION
+  const session = await auth();
+  if (!session) {
+    throw new Error("Unauthorized users could not create a booking");
+  }
+  console.log("from actions updateboking:", formData);
+  const { bookingId, cabinId, numNights, startDate, endDate } = bookingData;
+  // VALIDATION
+  const createBookingData = {
+    cabinId,
+    startDate,
+    endDate,
+    numNights,
+    numGuests: formData.get("numGuests"),
+    guestId: session.guestId,
+    hasBreakfast: formData.get("hasBreakfast"),
+    status: formData.get("status"),
+    isPaid: formData.get("isPaid"),
+  };
+  console.log("from actions updateboking:", createBookingData);
+
+  // UPDATE BOOKING
+
+  const { error } = await supabase
+    .from("bookings")
+    .update(createBookingData)
+    .eq("id", bookingId);
+
+  if (error) {
+    console.error("Error updating booking:", error);
+    throw new Error("Booking could not be updated");
+  }
+  revalidatePath("account/reservated", "page");
 }
