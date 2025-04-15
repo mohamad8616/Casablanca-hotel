@@ -26,6 +26,7 @@ export default function EditBookingButton({
     hasBreakfast: booking.hasBreakfast || false,
     isPaid: booking.isPaid || false,
     status: booking.status || "تایید نشده",
+    observations: booking.observations,
   });
 
   // Prevent scrolling when modal is open
@@ -205,7 +206,23 @@ export default function EditBookingButton({
                   <option value="خروج">خروج</option>
                 </select>
               </div>
-
+              <div>
+                <label className="block text-sm font-medium text-gray-700">
+                  توضیحات
+                </label>
+                <textarea
+                  name="observations"
+                  value={editData.observations}
+                  onChange={(e) =>
+                    setFormData((editData) => ({
+                      ...editData,
+                      observations: e.target.value,
+                    }))
+                  }
+                  className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-amber-500 focus:ring-amber-500 focus:outline-none"
+                  rows={3}
+                />
+              </div>
               <div className="flex items-center">
                 <input
                   type="checkbox"
@@ -244,7 +261,7 @@ export default function EditBookingButton({
 
                 <button
                   type="submit"
-                  disabled={!range[0] || !range[1]}
+                  // disabled={!range[0] || !range[1] ||}
                   className="cursor-pointer rounded-md border border-transparent bg-amber-600 px-4 py-1.5 text-sm font-medium text-white shadow-sm hover:bg-amber-700 focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 focus:outline-none disabled:cursor-default disabled:bg-stone-400"
                 >
                   {isPending ? (

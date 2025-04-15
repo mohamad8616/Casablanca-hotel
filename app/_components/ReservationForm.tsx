@@ -7,7 +7,6 @@ import { useReservation } from "./ReservationContext";
 import { createBooking } from "../_lib/actions";
 import { useState } from "react";
 import Modal from "./Modal";
-
 const inputClass =
   "rounded-md border-3 border-stone-700/50 bg-stone-100 px-3 py-1 ";
 

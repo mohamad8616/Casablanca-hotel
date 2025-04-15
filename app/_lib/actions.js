@@ -74,6 +74,7 @@ export async function updateBooking(bookingData, formData) {
     numGuests: formData.get("numGuests"),
     guestId: session.guestId,
     hasBreakfast: formData.get("hasBreakfast"),
+    observations: formData.get("observations"),
     status: formData.get("status"),
     isPaid: formData.get("isPaid"),
   };

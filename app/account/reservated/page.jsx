@@ -16,7 +16,7 @@ export default async function Page() {
       <h1 className="text-center text-base font-semibold tracking-wide sm:text-base md:text-lg">
         اتاق های رزرو شده
       </h1>
-      <section className="w-full space-y-5">
+      <section className="w-full space-y-10">
         {bookings
           ?.map((booking) => (
             <ReservationCard key={booking.id} reservation={booking} />

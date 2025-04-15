@@ -1,9 +1,11 @@
 export default function ModalCalendar({
   setShowCalendar,
   children,
+  className,
 }: {
   setShowCalendar: (showCalendar: boolean) => void;
   children: React.ReactNode;
+  className?: string;
 }) {
   return (
     <div
@@ -12,7 +14,7 @@ export default function ModalCalendar({
     >
       <div
         onClick={(e) => e.stopPropagation()}
-        className="flex h-2/3 w-11/12 flex-col items-center justify-center space-y-4 rounded-md bg-stone-100 px-1"
+        className={`flex h-2/3 w-11/12 flex-col items-center justify-center space-y-4 rounded-md bg-stone-100 px-1 ${className}`}
       >
         {children}
       </div>

@@ -23,6 +23,7 @@ export interface Reservation {
   extraPrice?: number;
   totalPrice: number;
   numNights?: number;
+  observations?: string;
 }
 export interface Cabin  {
     id: number
