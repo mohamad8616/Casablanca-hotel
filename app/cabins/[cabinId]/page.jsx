@@ -47,7 +47,7 @@ export default async function Page({ params }) {
     return (
       <main className="my-10 min-h-screen w-full flex-col items-center justify-between space-y-20 text-stone-700 sm:mt-10 md:flex dark:bg-stone-900 dark:text-stone-100">
         <Suspense fallback={<Loading />}>
-          <section className="relative w-full grid-cols-2 items-start justify-center gap-5 px-2 py-5 tracking-wider shadow-2xl shadow-stone-700/25 md:grid">
+          <section className="relative w-full grid-cols-2 items-start justify-center gap-5 px-9 py-5 tracking-wider shadow-2xl shadow-stone-700/25 md:grid">
             <div className="relative h-48 w-full flex-1 sm:h-72 lg:h-[500px] lg:w-full">
               {image ? (
                 <Image
@@ -63,7 +63,7 @@ export default async function Page({ params }) {
                 </div>
               )}
             </div>
-            <div className="mt-6 flex h-full flex-col items-center justify-between space-y-3 px-4 py-3 text-start md:mt-0">
+            <div className="mt-6 flex h-full flex-col items-center justify-between space-y-3 py-3 text-start md:mt-0">
               <div className="w-full place-items-start">
                 <div>
                   <p className={cabinDetails}>
@@ -109,9 +109,9 @@ export default async function Page({ params }) {
               <Link
                 href="#reservation"
                 aria-label="رزرو اتاق"
-                className="bottom-8 mt-1 ml-auto w-5/6 cursor-pointer rounded bg-emerald-600 px-2 py-1.5 pt-[1px] text-center text-sm md:w-1/6 md:text-base"
+                className="bottom-8 mt-1 ml-auto w-6/6 cursor-pointer rounded bg-emerald-600 px-2 py-2 pt-[1px] text-center text-sm text-xl font-semibold text-stone-900 md:w-1/6 md:text-base"
               >
-                رزرو&larr;
+                رزرو &larr;
               </Link>
             </div>
           </section>

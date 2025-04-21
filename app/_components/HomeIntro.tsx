@@ -44,46 +44,79 @@ export default function HomeIntro() {
           با ما بیشتر آشنا شوید ...
         </Link>
       </div>
-      <div className="grid grid-cols-2 p-4 md:h-66 lg:h-86">
-        <div>
+      <div className="relative grid grid-cols-2 gap-6 py-4 md:h-66 md:grid-cols-2 md:gap-1 lg:h-96">
+        <div className="group relative col-span-1 row-span-1 overflow-hidden rounded-2xl bg-gradient-to-br from-stone-900/20 to-stone-900/5 p-1 backdrop-blur-sm transition-all duration-500 hover:shadow-2xl">
+          <div className="absolute inset-0 z-10 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
           <Image
-            alt="hotel photo"
+            alt="Hotel exterior view"
             src={pic1}
-            width={300}
-            height={150}
-            className="W-20"
+            width={600}
+            height={400}
+            className="h-full w-full transform object-cover transition-transform duration-700 group-hover:scale-110"
             loading="lazy"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            quality={90}
           />
+          <div className="absolute bottom-0 left-0 z-20 p-4 text-white opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
+            <h3 className="text-xl font-bold">منظره خیره کننده</h3>
+            <p className="text-sm text-stone-200">چشم انداز بی نظیر به دریا</p>
+          </div>
         </div>
-        <div>
+
+        <div className="group relative col-span-1 row-span-1 overflow-hidden rounded-2xl bg-gradient-to-br from-stone-900/20 to-stone-900/5 p-1 backdrop-blur-sm transition-all duration-500 hover:shadow-2xl">
+          <div className="absolute inset-0 z-10 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
           <Image
-            alt="hotel photo"
+            alt="Hotel interior view"
             src={pic2}
-            width={300}
-            height={190}
-            className=""
+            width={600}
+            height={400}
+            className="h-full w-full transform object-cover transition-transform duration-700 group-hover:scale-110"
             loading="lazy"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            quality={90}
           />
+          <div className="absolute bottom-0 left-0 z-20 p-4 text-white opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
+            <h3 className="text-xl font-bold">طراحی داخلی لوکس</h3>
+            <p className="text-sm text-stone-200">فضایی مدرن و راحت</p>
+          </div>
         </div>
-        <div className="mr-auto justify-end text-end">
-          <Image
-            alt="hotel photo"
-            src={logo}
-            width={260}
-            height={150}
-            className=""
-            loading="lazy"
-          />
+
+        <div className="group relative col-span-1 row-span-1 overflow-hidden rounded-2xl bg-gradient-to-br from-stone-900/20 to-stone-900/5 p-1 backdrop-blur-sm transition-all duration-500 hover:shadow-2xl">
+          <div className="absolute inset-0 z-10 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+          <div className="relative h-full w-full bg-white/95 p-4">
+            <Image
+              alt="Hotel logo"
+              src={logo}
+              width={600}
+              height={400}
+              className="h-full w-full transform object-contain transition-transform duration-700 group-hover:scale-105"
+              loading="lazy"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              quality={90}
+            />
+          </div>
+          <div className="absolute bottom-0 left-0 z-20 p-4 text-stone-800 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
+            <h3 className="text-xl font-bold">هتل کازابلانکا</h3>
+            <p className="text-sm text-stone-600">تجربه بی نظیر اقامت</p>
+          </div>
         </div>
-        <div>
+
+        <div className="group relative col-span-1 row-span-1 overflow-hidden rounded-2xl bg-gradient-to-br from-stone-900/20 to-stone-900/5 p-1 backdrop-blur-sm transition-all duration-500 hover:shadow-2xl">
+          <div className="absolute inset-0 z-10 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
           <Image
-            alt="hotel photo"
+            alt="Hotel amenities"
             src={pic3}
-            width={260}
-            height={150}
-            className=""
+            width={600}
+            height={400}
+            className="h-full w-full transform object-cover transition-transform duration-700 group-hover:scale-110"
             loading="lazy"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            quality={90}
           />
+          <div className="absolute bottom-0 left-0 z-20 p-4 text-white opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
+            <h3 className="text-xl font-bold">امکانات ویژه</h3>
+            <p className="text-sm text-stone-200">خدمات لوکس و منحصر به فرد</p>
+          </div>
         </div>
       </div>
     </section>

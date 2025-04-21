@@ -53,19 +53,23 @@ export default function ReservationForm({ cabin }: { cabin: Cabin }) {
           <section className="flex h-full w-3/3 items-start justify-between gap-4">
             <div className="flex h-[300px] w-full justify-start rounded-md p-4">
               <div className="flex h-full w-full flex-col items-center justify-between">
-                <div className="flex w-full justify-between gap-4 rounded-md bg-slate-800 px-2 py-4 text-slate-200 dark:bg-emerald-600">
-                  <span>
-                    از:{" "}
-                    {startDate?.format?.("YYYY/MM/DD") || (
-                      <button className="font-semibold">..../../..</button>
-                    )}
-                  </span>
-                  <span>
-                    تا:{"    "}
-                    {endDate?.format?.("YYYY/MM/DD") || (
-                      <button className="font-semibold">..../../..</button>
-                    )}
-                  </span>
+                <div className="flex h-20 w-full items-center justify-between gap-4 rounded-md px-2 py-4">
+                  <span className="w-3/12">انتخاب تاریخ:</span>
+
+                  <div className="flex h-full w-8/12 items-center justify-between bg-slate-800 px-5 text-slate-200 dark:bg-emerald-600">
+                    <span>
+                      از:{" "}
+                      {startDate?.format?.("YYYY/MM/DD") || (
+                        <button className="font-semibold">..../../..</button>
+                      )}
+                    </span>
+                    <span>
+                      تا:{"    "}
+                      {endDate?.format?.("YYYY/MM/DD") || (
+                        <button className="font-semibold">..../../..</button>
+                      )}
+                    </span>
+                  </div>
                 </div>
                 <p className="flex w-full justify-between">
                   تعداد روز ها:
@@ -155,6 +159,7 @@ export default function ReservationForm({ cabin }: { cabin: Cabin }) {
             <div className="flex h-[300px] w-full justify-start rounded-md p-4">
               <div className="flex h-full w-full flex-col items-center justify-between">
                 <div className="flex w-full justify-between gap-4">
+                  <p className="w-3/12">انتخاب تاریخ:</p>
                   <span>
                     از:{" "}
                     {startDate?.format?.("YYYY/MM/DD") || (
@@ -236,7 +241,7 @@ export default function ReservationForm({ cabin }: { cabin: Cabin }) {
               placeholder="توضیحات"
             />
           </div>
-          <div className="flex w-full items-center justify-between rounded-md bg-yellow-500 px-4 py-5 font-bold">
+          <div className="flex w-full items-center justify-between rounded-md bg-yellow-500 px-4 py-5 font-bold text-stone-950">
             <div className="flex gap-2 text-lg">
               <span className="tracking-wide">قیمت نهایی با تخفیف:</span>
               <span>
