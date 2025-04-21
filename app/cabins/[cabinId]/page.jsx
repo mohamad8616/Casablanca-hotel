@@ -54,6 +54,7 @@ export default async function Page({ params }) {
                   alt={`cabin ${name}`}
                   src={image}
                   fill
+                  loading="lazy"
                   className="rounded-lg object-cover shadow-md shadow-stone-700/15"
                 />
               ) : (

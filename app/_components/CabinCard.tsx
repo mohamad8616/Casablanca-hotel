@@ -13,6 +13,7 @@ export default function Cabin({ cabin }: { cabin: CabinCard }) {
             alt={`Cabin ${name}`}
             className="flex-1 rounded-md border-none object-cover"
             fill
+            loading="lazy"
           />
         ) : (
           <div className="flex h-full items-center justify-center bg-gray-200">

@@ -25,6 +25,7 @@ export default function LargeNavbar({ session }: LargeHeaderProps) {
         layout="responsive"
         width={1000}
         height={500}
+        loading="lazy"
       />
       <div className="absolute top-0 right-0 flex h-2/3 w-full flex-wrap items-center justify-between gap-2 bg-slate-900/60 px-6 text-center text-slate-100 hover:text-white">
         <TextLogo />

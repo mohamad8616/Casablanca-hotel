@@ -24,8 +24,8 @@ export default function HomeIntro() {
       className="mt-15 flex w-10/12 grid-cols-2 flex-col-reverse md:mt-25 md:grid dark:text-stone-100"
     >
       <div className="h-auto space-y-5 p-1">
-        <h1 className="w-full font-bold md:text-4xl/15 lg:text-center lg:text-5xl/20">
-          هتل پنج ستاره کازابلانکا
+        <h1 className="w-full text-center text-3xl font-bold tracking-wide md:text-4xl/15 lg:text-5xl/20">
+          هتل<span className="text-yellow-600"> پنج ستاره</span> کازابلانکا
         </h1>
         <h3 className="my-3 text-center text-2xl">مکانی رویایی</h3>
         <p className="text-sm/9 tracking-wide">
@@ -52,6 +52,7 @@ export default function HomeIntro() {
             width={300}
             height={150}
             className="W-20"
+            loading="lazy"
           />
         </div>
         <div>
@@ -61,6 +62,7 @@ export default function HomeIntro() {
             width={300}
             height={190}
             className=""
+            loading="lazy"
           />
         </div>
         <div className="mr-auto justify-end text-end">
@@ -70,15 +72,17 @@ export default function HomeIntro() {
             width={260}
             height={150}
             className=""
+            loading="lazy"
           />
         </div>
         <div>
           <Image
             alt="hotel photo"
             src={pic3}
-            width={300}
+            width={260}
             height={150}
             className=""
+            loading="lazy"
           />
         </div>
       </div>

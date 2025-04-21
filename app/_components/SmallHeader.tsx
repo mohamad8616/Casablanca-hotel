@@ -46,10 +46,11 @@ export default function SmallHeader({ session }: SessionProps) {
         className="-z-10 object-cover"
         width={1000}
         height={2000}
+        loading="lazy"
       />
       <div className="absolute top-0 right-0 flex h-full w-full flex-wrap items-center justify-between gap-1 bg-slate-900/60 px-3 text-center text-slate-100 hover:text-white sm:px-6">
         <button className="cursor-pointer" onClick={() => setShowNav(true)}>
-          <RxHamburgerMenu className="text-slate-100 sm:text-4xl" />
+          <RxHamburgerMenu className="text-4xl text-slate-100" />
         </button>
         <TextLogo />
         <ThemeToggle />

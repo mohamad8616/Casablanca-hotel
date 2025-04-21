@@ -28,7 +28,13 @@ export default async function ReservationCard({
         <div className="hidden h-auto w-full space-y-5 border-slate-700 bg-slate-200/60 sm:block dark:border-2 dark:border-stone-100 dark:bg-stone-800 dark:p-2 dark:text-stone-100">
           <div className="flex h-20 w-full items-center justify-between gap-2">
             <div className="relative aspect-video h-full w-30">
-              <Image src={image} alt={name} fill className="object-fill" />
+              <Image
+                loading="lazy"
+                src={image}
+                alt={name}
+                fill
+                className="object-fill"
+              />
             </div>
             <div className="flex h-full w-full items-center justify-between px-3 py-1">
               <div className="flex h-full flex-col items-start justify-between space-y-2">
@@ -96,7 +102,13 @@ export default async function ReservationCard({
       <>
         <div className="flex h-[600px] w-full flex-col items-center justify-around bg-slate-200/65 py-3 sm:hidden">
           <div className="relative aspect-video h-1/2 w-11/12">
-            <Image src={image} alt={name} fill className="object-cover" />
+            <Image
+              loading="lazy"
+              src={image}
+              alt={name}
+              fill
+              className="object-cover"
+            />
           </div>
           <div className="flex w-11/12 flex-col items-center justify-between">
             <div className="flex h-full w-full flex-col justify-between space-y-2">

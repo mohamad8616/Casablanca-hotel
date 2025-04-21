@@ -55,17 +55,32 @@ export default function Slider({ cabinImages = [] }: SliderProps) {
           className="keen-slider md:96 relative h-64 sm:h-80"
         >
           <div className="keen-slider__slide number-slide1">
-            <Image src={pic1} alt="pic1" fill className="object-cover" />
+            <Image
+              src={pic1}
+              alt="pic1"
+              fill
+              className="object-cover"
+              loading="lazy"
+            />
           </div>
           <div className="keen-slider__slide number-slide2">
-            <Image src={pic2} alt="pic2" fill className="object-cover" />
+            <Image
+              src={pic2}
+              alt="pic2"
+              fill
+              className="object-cover"
+              loading="lazy"
+            />
           </div>
           <div className="keen-slider__slide number-slide3">
-            <Image src={pic3} alt="pic3" fill className="object-cover" />
+            <Image
+              src={pic3}
+              alt="pic3"
+              fill
+              className="object-cover"
+              loading="lazy"
+            />
           </div>
-          {/* <div className="keen-slider__slide number-slide4">4</div>
-        <div className="keen-slider__slide number-slide5">5</div>
-        <div className="keen-slider__slide number-slide6">6</div> */}
         </div>
       </>
     );
