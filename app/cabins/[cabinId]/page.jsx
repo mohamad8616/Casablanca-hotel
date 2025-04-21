@@ -15,6 +15,8 @@ export async function generateMetadata({ params }) {
     description: "رزرو کابین ",
   };
 }
+const cabinDetails =
+  "text-sm text-stone-600 md:text-base dark:text-stone-300 dark:bg-stone-900";
 
 export default async function Page({ params }) {
   const { cabinId } = params;
@@ -43,7 +45,7 @@ export default async function Page({ params }) {
     });
 
     return (
-      <main className="my-10 min-h-screen w-full flex-col items-center justify-between space-y-20 text-stone-700 sm:mt-10 md:flex">
+      <main className="my-10 min-h-screen w-full flex-col items-center justify-between space-y-20 text-stone-700 sm:mt-10 md:flex dark:bg-stone-900 dark:text-stone-100">
         <Suspense fallback={<Loading />}>
           <section className="relative w-full grid-cols-2 items-start justify-center gap-5 px-2 py-5 tracking-wider shadow-2xl shadow-stone-700/25 md:grid">
             <div className="relative h-48 w-full flex-1 sm:h-72 lg:h-[500px] lg:w-full">
@@ -62,22 +64,22 @@ export default async function Page({ params }) {
             </div>
             <div className="mt-6 flex h-full flex-col items-center justify-between space-y-3 px-4 py-3 text-start md:mt-0">
               <div className="w-full place-items-start">
-                <div className="">
-                  <p className="text-sm text-stone-600 md:text-base">
+                <div>
+                  <p className={cabinDetails}>
                     نام اتاق: <span className="font-semibold">{name}</span>
                   </p>
-                  <p className="text-sm text-stone-600 md:text-base">
+                  <p className={cabinDetails}>
                     ظرفیت: <span className="font-semibold">{maxCapacity}</span>
                   </p>
                 </div>
                 <div className="">
-                  <p className="text-sm text-stone-600 md:text-base">
+                  <p className={cabinDetails}>
                     تخفیف :{"   "}
                     <span className="font-semibold">
                       {discount + "  تومان"}
                     </span>
                   </p>
-                  <p className="text-sm text-stone-600 md:text-base">
+                  <p className={cabinDetails}>
                     قیمت اتاق:{"   "}
                     <span className="font-semibold">
                       {regularPrice + "  تومان"}
@@ -86,18 +88,18 @@ export default async function Page({ params }) {
                 </div>
               </div>
               <div>
-                <p className="text-sm text-stone-600 md:text-base">
+                <p className={cabinDetails}>
                   این کابین چوبی زیبا، مکانی ایده‌آل برای فرار از شلوغی‌های
                   زندگی شهری است. با طراحی گرم و دلنشین، شما را به قلب طبیعت
                   دعوت می‌کند. تجربه‌ای بی‌نظیر از آرامش و سکوت در دل جنگل!
                 </p>
-                <p className="text-sm text-stone-600 md:text-base">
+                <p className={cabinDetails}>
                   این کابین مجهز به تمامی امکانات رفاهی مدرن است و در عین حال حس
                   نزدیکی به طبیعت را حفظ کرده است. از پنجره‌های بزرگ آن
                   می‌توانید مناظر خیره‌کننده جنگل را تماشا کنید و از صدای
                   پرندگان لذت ببرید.
                 </p>
-                <p className="text-sm text-stone-600 md:text-base">
+                <p className={cabinDetails}>
                   شب‌ها می‌توانید زیر آسمان پرستاره بنشینید و از هوای تازه و
                   آرامش بی‌پایان لذت ببرید. این کابین فرصتی استثنایی برای تجربه
                   یک زندگی ساده و طبیعی در دل طبیعت است.
@@ -106,9 +108,9 @@ export default async function Page({ params }) {
               <Link
                 href="#reservation"
                 aria-label="رزرو اتاق"
-                className="bottom-8 mx-auto mt-1 w-5/6 cursor-pointer place-content-start place-items-end rounded bg-amber-600 px-2 py-0.5 pt-[1px] text-center text-sm text-amber-50 md:w-1/6 md:text-base"
+                className="bottom-8 mt-1 ml-auto w-5/6 cursor-pointer rounded bg-emerald-600 px-2 py-1.5 pt-[1px] text-center text-sm md:w-1/6 md:text-base"
               >
-                رزرو
+                رزرو&larr;
               </Link>
             </div>
           </section>

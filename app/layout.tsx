@@ -5,6 +5,7 @@ import Header from "./_components/Header";
 import localFont from "next/font/local";
 import Footer from "./_components/Footer";
 import { Suspense } from "react";
+import { ThemeProvider } from "@/src/context/ThemeContext";
 const myFont = localFont({ src: "./Yekan.woff2" });
 export const metadata: Metadata = {
   title: "هتل کازابلانکا",
@@ -22,10 +23,11 @@ export default function RootLayout({
         dir="rtl"
         className={`${myFont.className} antialiased dark:bg-stone-800 dark:text-stone-50`}
       >
-        <Header />
-        <Suspense fallback={<Loading />}>{children}</Suspense>
-
-        <Footer />
+        <ThemeProvider>
+          <Header />
+          <Suspense fallback={<Loading />}>{children}</Suspense>
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );

@@ -25,7 +25,7 @@ export default async function ReservationCard({
   return (
     <>
       <>
-        <div className="hidden h-auto w-full space-y-5 border-slate-700 bg-slate-200/60 sm:block">
+        <div className="hidden h-auto w-full space-y-5 border-slate-700 bg-slate-200/60 sm:block dark:border-2 dark:border-stone-100 dark:bg-stone-800 dark:p-2 dark:text-stone-100">
           <div className="flex h-20 w-full items-center justify-between gap-2">
             <div className="relative aspect-video h-full w-30">
               <Image src={image} alt={name} fill className="object-fill" />
@@ -36,7 +36,7 @@ export default async function ReservationCard({
                   {reservation.numNights + "  "}شب در کابین{" "}
                   <span className="text-sm font-bold">{name + " "}</span>
                 </h2>
-                <p className="w-full space-x-5 text-sm text-slate-700">
+                <p className="w-full space-x-5 text-sm text-slate-700 dark:text-stone-100">
                   <span> از تاریخ </span>
 
                   <span> {jalaliStartDate}</span>
@@ -45,7 +45,7 @@ export default async function ReservationCard({
                   <span> {jalaliEndDate}</span>
                 </p>
                 <div className="w-full justify-between px-1">
-                  <p className="text-xs text-slate-600">
+                  <p className="text-xs text-slate-600 dark:text-stone-100">
                     تعداد مهمان {reservation.numGuests}
                   </p>
                 </div>

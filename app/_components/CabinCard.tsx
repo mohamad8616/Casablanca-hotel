@@ -5,13 +5,13 @@ import { CabinCard } from "../_lib/dataType";
 export default function Cabin({ cabin }: { cabin: CabinCard }) {
   const { id, name, maxCapacity, image } = cabin;
   return (
-    <div className="my-5 h-[470px] w-full rounded-md border-stone-800 shadow-xl shadow-stone-600/30 lg:h-[500px]">
+    <div className="my-5 h-[470px] w-full rounded-md border-stone-800 shadow-xl shadow-stone-600/30 lg:h-[500px] dark:border-none">
       <div className="relative h-4/5 w-full flex-1 rounded-md">
         {image ? (
           <Image
             src={image}
             alt={`Cabin ${name}`}
-            className="flex-1 rounded-md object-cover"
+            className="flex-1 rounded-md border-none object-cover"
             fill
           />
         ) : (

@@ -8,7 +8,7 @@ import { createBooking } from "../_lib/actions";
 import { useState } from "react";
 import Modal from "./Modal";
 const inputClass =
-  "rounded-md border-3 border-stone-700/50 bg-stone-100 px-3 py-1 ";
+  "rounded-md border-3 border-stone-700/50 bg-stone-100 px-3 py-1 text-stone-700";
 
 // Create a wrapper function to match the expected parameter structure
 
@@ -48,12 +48,12 @@ export default function ReservationForm({ cabin }: { cabin: Cabin }) {
       >
         <form
           action={createBookingwithData}
-          className="h-full w-full space-y-6 bg-stone-50 p-2"
+          className="h-full w-full space-y-6 p-2 dark:bg-stone-900 dark:text-stone-100"
         >
           <section className="flex h-full w-3/3 items-start justify-between gap-4">
-            <div className="flex h-[300px] w-full justify-start rounded-md bg-stone-50 p-4">
+            <div className="flex h-[300px] w-full justify-start rounded-md p-4">
               <div className="flex h-full w-full flex-col items-center justify-between">
-                <div className="flex w-full justify-between gap-4 rounded-md bg-slate-800 px-2 py-4 text-slate-200">
+                <div className="flex w-full justify-between gap-4 rounded-md bg-slate-800 px-2 py-4 text-slate-200 dark:bg-emerald-600">
                   <span>
                     از:{" "}
                     {startDate?.format?.("YYYY/MM/DD") || (
@@ -145,14 +145,14 @@ export default function ReservationForm({ cabin }: { cabin: Cabin }) {
       </section>
       <section
         id="reservation"
-        className="relative mx-auto h-auto w-full flex-col items-center justify-between px-2 py-6 md:hidden"
+        className="relative mx-auto h-auto w-full flex-col items-center justify-between px-2 py-6 md:hidden dark:bg-stone-900 dark:text-stone-100"
       >
         <form
           action={createBookingwithData}
-          className="h-full w-full space-y-6 bg-stone-50 p-2"
+          className="h-full w-full space-y-6 p-2"
         >
           <section className="flex h-full w-3/3 items-start justify-between gap-4">
-            <div className="flex h-[300px] w-full justify-start rounded-md bg-stone-50 p-4">
+            <div className="flex h-[300px] w-full justify-start rounded-md p-4">
               <div className="flex h-full w-full flex-col items-center justify-between">
                 <div className="flex w-full justify-between gap-4">
                   <span>

@@ -8,7 +8,7 @@ export default async function SideNav() {
   const session = await auth();
   return (
     <>
-      <aside className="hidden h-full w-1/6 border-l-1 border-stone-700/50 bg-indigo-100 md:block">
+      <aside className="hidden h-full w-1/6 border-l-1 border-stone-700/50 bg-indigo-100 md:block dark:border-stone-100 dark:bg-stone-800 dark:text-stone-100">
         <div className="flex h-20 items-center justify-center">
           <Link
             href="/account"
@@ -22,7 +22,7 @@ export default async function SideNav() {
               width={26} // Adjust width as needed
               height={26} // Adjust height as needed
             />
-            <span className="text-xs text-slate-800 duration-200 hover:text-blue-600">
+            <span className="text-xs text-slate-800 duration-200 hover:text-blue-600 dark:text-stone-100">
               {session?.user?.name || "Guest"}
             </span>
           </Link>

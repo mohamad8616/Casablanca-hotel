@@ -9,6 +9,7 @@ import { IoHomeOutline } from "react-icons/io5";
 import { BsQuestionSquare } from "react-icons/bs";
 import { GiWoodCabin } from "react-icons/gi";
 import { IoMdContacts } from "react-icons/io";
+import ThemeToggle from "./ThemeToggle";
 
 export interface SessionProps {
   session: {
@@ -48,9 +49,10 @@ export default function SmallHeader({ session }: SessionProps) {
       />
       <div className="absolute top-0 right-0 flex h-full w-full flex-wrap items-center justify-between gap-1 bg-slate-900/60 px-3 text-center text-slate-100 hover:text-white sm:px-6">
         <button className="cursor-pointer" onClick={() => setShowNav(true)}>
-          <RxHamburgerMenu className="text-2xl text-slate-100 sm:text-4xl" />
+          <RxHamburgerMenu className="text-slate-100 sm:text-4xl" />
         </button>
         <TextLogo />
+        <ThemeToggle />
       </div>
       <div
         className={`fixed top-0 right-0 z-20 h-dvh w-full bg-slate-900/70 transition-opacity duration-300 ${
@@ -65,6 +67,8 @@ export default function SmallHeader({ session }: SessionProps) {
           onClick={(e) => e.stopPropagation()}
         >
           <div className="flex items-center justify-between border-b-2 border-slate-200/50 px-4 py-5 text-center">
+            <ThemeToggle />
+
             <TextLogo />
             <button
               className="cursor-pointer text-5xl text-red-500"

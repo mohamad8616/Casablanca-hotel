@@ -1,11 +1,13 @@
 import SignOutButton from "../_components/SignOutButton";
 import { auth } from "../_lib/auth";
 
+const inputStyle =
+  "w-1/2 rounded-full border-2 border-slate-700/50 px-3 py-0.5 text-base duration-300 placeholder:text-xs sm:py-1 dark:border-stone-100 dark:bg-stone-800 dark:text-stone-100";
 export default async function Page() {
   const session = await auth();
   console.log(session);
   return (
-    <main className="h-10/12 w-full bg-slate-50 text-center">
+    <main className="h-10/12 w-full bg-slate-50 text-center dark:bg-stone-800 dark:text-stone-100">
       <div className="h-12 px-2 py-14 text-center text-lg font-semibold sm:text-start lg:px-16 lg:text-3xl">
         <p className="sm:ml-10">خوش آمدید, {session?.user?.name}</p>
       </div>
@@ -19,7 +21,7 @@ export default async function Page() {
           </label>
           <input
             type="text"
-            className="w-1/2 rounded-full border-2 border-slate-700/50 px-3 py-0.5 text-base duration-300 placeholder:text-xs sm:py-1"
+            className={inputStyle}
             placeholder="نام کاربری"
             name="text"
             defaultValue={session?.user?.name ?? ""}
@@ -32,7 +34,7 @@ export default async function Page() {
           </label>
           <input
             type="email"
-            className="w-1/2 rounded-full border-2 border-slate-700/50 px-3 py-0.5 text-base duration-300 placeholder:text-sm sm:py-1"
+            className={inputStyle}
             placeholder="ایمیل"
             name="email"
             defaultValue={session?.user?.email ?? ""}
