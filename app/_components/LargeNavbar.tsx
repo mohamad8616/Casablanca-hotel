@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import TextLogo from "./TextLogo";
 import ContactUs from "./ContactUs";
@@ -10,12 +11,48 @@ import { GiWoodCabin } from "react-icons/gi";
 import { IoMdContacts } from "react-icons/io";
 import { LargeHeaderProps } from "../_lib/dataType";
 import ThemeToggle from "@/app/_components/ThemeToggle";
+import { ReactNode, useState } from "react";
+
+interface NavLink {
+  id: number;
+  name: string;
+  href: string;
+  icon: ReactNode;
+}
+
+const navLinks: NavLink[] = [
+  {
+    id: 0,
+    name: "صفحه اصلی",
+    href: "/",
+    icon: <IoHomeOutline className="inline text-xl" />,
+  },
+  {
+    id: 1,
+    name: " درباره مجموعه",
+    href: "/about",
+    icon: <BsQuestionSquare className="inline text-xl" />,
+  },
+  {
+    id: 2,
+    name: "کابین ها",
+    href: "/cabins",
+    icon: <GiWoodCabin className="inline text-xl" />,
+  },
+  {
+    id: 3,
+    name: "ارتباط با ما",
+    href: "#contactus",
+    icon: <IoMdContacts className="inline text-xl" />,
+  },
+];
 
 const navLiClass =
   "cursor-pointer items-center py-2 text-base text-slate-800 duration-200 hover:text-amber-600";
 
 const navLinkClass = "flex items-center md:gap-x-1 lg:gap-x-2";
 export default function LargeNavbar({ session }: LargeHeaderProps) {
+  const [selectedLink, setSelectedLink] = useState<number>(0);
   return (
     <header className="relative z-10 hidden max-h-56 min-h-26 w-full flex-1 flex-col items-center justify-between overflow-hidden md:flex">
       <Image
@@ -37,43 +74,32 @@ export default function LargeNavbar({ session }: LargeHeaderProps) {
       <div className="absolute top-2/3 right-0 flex h-1/3 w-full flex-wrap items-center justify-between gap-2 bg-slate-900/55 text-center text-slate-100 hover:text-white">
         <nav className="relative flex h-full w-full items-center justify-center">
           <ul className="flex h-auto items-center justify-between gap-x-5 rounded-tl-full rounded-br-full bg-slate-50/80 px-7 md:w-10/12 lg:w-8/12">
-            <li className={navLiClass}>
-              <Link href="/" className={navLinkClass}>
-                {" "}
-                <span>
-                  <IoHomeOutline className="inline text-xl" />
-                </span>
-                <span>صفحه اصلی</span>
-              </Link>
-            </li>
-            <li className={navLiClass}>
-              <Link href="/about" className={navLinkClass}>
-                <span>
-                  <BsQuestionSquare className="inline text-xl" />
-                </span>
-                <span>درباره مجموعه</span>
-              </Link>
-            </li>
-            <li className={navLiClass}>
-              <Link href="/cabins" className={navLinkClass}>
-                <span>
-                  <GiWoodCabin className="inline text-xl" />
-                </span>
-                <span>اتاق ها</span>
-              </Link>
-            </li>
-            <li className={navLiClass}>
-              <Link href="#contactUs" className={navLinkClass}>
-                <span>
-                  <IoMdContacts className="inline text-xl" />
-                </span>
-                <span>تماس با ما</span>
-              </Link>
-            </li>
+            {navLinks.map((navLink) => (
+              <li
+                className={`${navLiClass} `}
+                key={navLink.id}
+                onClick={() => setSelectedLink(navLink.id)}
+              >
+                <Link href={navLink.href} className={navLinkClass}>
+                  {" "}
+                  <span
+                    className={`${navLink.id === selectedLink ? "text-green-700" : ""}`}
+                  >
+                    {navLink.icon}
+                  </span>
+                  <span
+                    className={`${navLink.id === selectedLink ? "text-green-700" : ""}`}
+                  >
+                    {navLink.name}
+                  </span>
+                </Link>
+              </li>
+            ))}
 
             {session?.user ? (
               <Link
                 href="/account"
+                onClick={() => setSelectedLink(5)}
                 className="flex w-26 items-center justify-center gap-2"
               >
                 <Image

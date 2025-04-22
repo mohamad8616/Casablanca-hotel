@@ -158,8 +158,8 @@ export default function ReservationForm({ cabin }: { cabin: Cabin }) {
           <section className="flex h-full w-3/3 items-start justify-between gap-4">
             <div className="flex h-[300px] w-full justify-start rounded-md p-4">
               <div className="flex h-full w-full flex-col items-center justify-between">
-                <div className="flex w-full justify-between gap-4">
-                  <p className="w-3/12">انتخاب تاریخ:</p>
+                <div className="flex w-full justify-between sm:gap-4">
+                  <p className="w-auto">انتخاب تاریخ:</p>
                   <span>
                     از:{" "}
                     {startDate?.format?.("YYYY/MM/DD") || (

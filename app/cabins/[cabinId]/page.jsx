@@ -1,22 +1,24 @@
 import Reservation from "@/app/_components/Reservation";
-
 import { getCabinByID } from "@/app/_lib/database";
 import Image from "next/image";
 import Link from "next/link";
 import { Suspense } from "react";
 import Loading from "../loading";
+import {
+  IoBedOutline,
+  IoPeopleOutline,
+  IoPricetagOutline,
+} from "react-icons/io5";
 
 export async function generateMetadata({ params }) {
   const { cabinId } = params;
   const cabinData = await getCabinByID(cabinId);
   const { name } = cabinData;
   return {
-    title: name ? `کابین شماره ${name}` : "کابین یافت نشد",
-    description: "رزرو کابین ",
+    title: name ? `کابین ${name} | هتل جنگلی` : "کابین یافت نشد",
+    description: `رزرو کابین ${name} در هتل جنگلی`,
   };
 }
-const cabinDetails =
-  "text-sm text-stone-600 md:text-base dark:text-stone-300 dark:bg-stone-900";
 
 export default async function Page({ params }) {
   const { cabinId } = params;
@@ -30,111 +32,122 @@ export default async function Page({ params }) {
     if (!cabin) {
       return (
         <div className="flex min-h-screen items-center justify-center">
-          <p className="text-xl text-stone-700">کابین مورد نظر یافت نشد.</p>
+          <p className="text-xl text-stone-700 dark:text-stone-300">
+            کابین مورد نظر یافت نشد.
+          </p>
         </div>
       );
     }
 
-    const { name, maxCapacity, regularPrice, discount, image } = cabin;
-    console.log("Cabin details:", {
-      name,
-      maxCapacity,
-      regularPrice,
-      discount,
-      image,
-    });
+    const { name, maxCapacity, regularPrice, discount, image, description } =
+      cabin;
+    const discountedPrice = regularPrice - discount;
 
     return (
-      <main className="my-10 min-h-screen w-full flex-col items-center justify-between space-y-20 text-stone-700 sm:mt-10 md:flex dark:bg-stone-900 dark:text-stone-100">
+      <main className="mx-auto min-h-screen w-full max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
         <Suspense fallback={<Loading />}>
-          <section className="relative w-full grid-cols-2 items-start justify-center gap-5 px-9 py-5 tracking-wider shadow-2xl shadow-stone-700/25 md:grid">
-            <div className="relative h-48 w-full flex-1 sm:h-72 lg:h-[500px] lg:w-full">
+          {/* Hero section with image */}
+          <div className="mb-8 overflow-hidden rounded-xl bg-white shadow-lg dark:bg-slate-800">
+            <div className="relative h-64 w-full sm:h-80 md:h-96 lg:h-[500px]">
               {image ? (
                 <Image
-                  alt={`cabin ${name}`}
+                  alt={`کابین ${name}`}
                   src={image}
                   fill
-                  loading="lazy"
-                  className="rounded-lg object-cover shadow-md shadow-stone-700/15"
+                  priority
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
+                  className="object-cover"
                 />
               ) : (
-                <div className="flex h-full items-center justify-center bg-gray-200">
-                  <p>No Image Available</p>
+                <div className="flex h-full w-full items-center justify-center bg-slate-200 dark:bg-slate-700">
+                  <IoBedOutline className="h-16 w-16 text-slate-400" />
                 </div>
               )}
-            </div>
-            <div className="mt-6 flex h-full flex-col items-center justify-between space-y-3 py-3 text-start md:mt-0">
-              <div className="w-full place-items-start">
-                <div>
-                  <p className={cabinDetails}>
-                    نام اتاق: <span className="font-semibold">{name}</span>
-                  </p>
-                  <p className={cabinDetails}>
-                    ظرفیت: <span className="font-semibold">{maxCapacity}</span>
-                  </p>
-                </div>
-                <div className="">
-                  <p className={cabinDetails}>
-                    تخفیف :{"   "}
-                    <span className="font-semibold">
-                      {discount + "  تومان"}
+
+              {/* Price tag overlay */}
+              <div className="absolute right-4 bottom-4 rounded-full bg-amber-500 px-4 py-2 text-lg font-bold text-white shadow-lg">
+                {discount > 0 ? (
+                  <div className="flex items-center gap-2">
+                    <span className="text-sm line-through opacity-70">
+                      {regularPrice.toLocaleString()}
                     </span>
-                  </p>
-                  <p className={cabinDetails}>
-                    قیمت اتاق:{"   "}
-                    <span className="font-semibold">
-                      {regularPrice + "  تومان"}
-                    </span>
-                  </p>
-                </div>
+                    <span>{discountedPrice.toLocaleString()} تومان</span>
+                  </div>
+                ) : (
+                  <span>{regularPrice.toLocaleString()} تومان</span>
+                )}
               </div>
-              <div>
-                <p className={cabinDetails}>
-                  این کابین چوبی زیبا، مکانی ایده‌آل برای فرار از شلوغی‌های
-                  زندگی شهری است. با طراحی گرم و دلنشین، شما را به قلب طبیعت
-                  دعوت می‌کند. تجربه‌ای بی‌نظیر از آرامش و سکوت در دل جنگل!
+            </div>
+          </div>
+
+          {/* Cabin details section */}
+          <div className="mb-12 grid gap-8 md:grid-cols-3">
+            {/* Main content */}
+            <div className="md:col-span-2">
+              <h1 className="mb-4 text-3xl font-bold text-slate-800 dark:text-white">
+                {name}
+              </h1>
+
+              {/* Features */}
+              <div className="mb-6 flex flex-wrap gap-4">
+                <div className="flex items-center gap-2 rounded-lg bg-slate-100 px-4 py-2 dark:bg-slate-700">
+                  <IoPeopleOutline className="h-5 w-5 text-amber-500" />
+                  <span className="text-slate-700 dark:text-slate-300">
+                    ظرفیت: {maxCapacity} نفر
+                  </span>
+                </div>
+                {discount > 0 && (
+                  <div className="flex items-center gap-2 rounded-lg bg-slate-100 px-4 py-2 dark:bg-slate-700">
+                    <IoPricetagOutline className="h-5 w-5 text-amber-500" />
+                    <span className="text-slate-700 dark:text-slate-300">
+                      تخفیف: {discount.toLocaleString()} تومان
+                    </span>
+                  </div>
+                )}
+              </div>
+
+              {/* Description */}
+              <div className="prose dark:prose-invert max-w-none">
+                <h2 className="text-xl font-semibold text-slate-800 dark:text-white">
+                  توضیحات کابین
+                </h2>
+                <p className="text-slate-600 dark:text-slate-300">
+                  {description ||
+                    "این کابین چوبی زیبا، مکانی ایده‌آل برای فرار از شلوغی‌های زندگی شهری است. با طراحی گرم و دلنشین، شما را به قلب طبیعت دعوت می‌کند. تجربه‌ای بی‌نظیر از آرامش و سکوت در دل جنگل!"}
                 </p>
-                <p className={cabinDetails}>
+                <p className="text-slate-600 dark:text-slate-300">
                   این کابین مجهز به تمامی امکانات رفاهی مدرن است و در عین حال حس
                   نزدیکی به طبیعت را حفظ کرده است. از پنجره‌های بزرگ آن
                   می‌توانید مناظر خیره‌کننده جنگل را تماشا کنید و از صدای
                   پرندگان لذت ببرید.
                 </p>
-                <p className={cabinDetails}>
+                <p className="text-slate-600 dark:text-slate-300">
                   شب‌ها می‌توانید زیر آسمان پرستاره بنشینید و از هوای تازه و
                   آرامش بی‌پایان لذت ببرید. این کابین فرصتی استثنایی برای تجربه
                   یک زندگی ساده و طبیعی در دل طبیعت است.
                 </p>
               </div>
-              <Link
-                href="#reservation"
-                aria-label="رزرو اتاق"
-                className="bottom-8 mt-1 ml-auto w-6/6 cursor-pointer rounded bg-emerald-600 px-2 py-2 pt-[1px] text-center text-sm text-xl font-semibold text-stone-900 md:w-1/6 md:text-base"
-              >
-                رزرو &larr;
-              </Link>
             </div>
-          </section>
+
+            {/* Reservation sidebar */}
+          </div>
         </Suspense>
-        <section className="w-full px-2 py-5">
-          <Suspense
-            fallback={
-              <div className="py-4 text-center">
-                در حال بارگذاری فرم رزرو...
-              </div>
-            }
-          >
-            <Reservation cabin={cabin} />
-          </Suspense>
-        </section>
+        <Suspense
+          fallback={
+            <div className="py-4 text-center text-slate-600 dark:text-slate-300">
+              در حال بارگذاری فرم رزرو...
+            </div>
+          }
+        >
+          <Reservation cabin={cabin} />
+        </Suspense>
       </main>
     );
   } catch (error) {
     console.error("Error in page component:", error);
-    console.error("Error stack:", error.stack);
     return (
       <div className="flex min-h-screen items-center justify-center">
-        <p className="text-xl text-stone-700">
+        <p className="text-xl text-stone-700 dark:text-stone-300">
           خطا در دریافت اطلاعات کابین. لطفا دوباره تلاش کنید.
         </p>
       </div>
