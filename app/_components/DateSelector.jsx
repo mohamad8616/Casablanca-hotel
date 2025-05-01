@@ -2,7 +2,7 @@
 import { Calendar } from "react-multi-date-picker";
 import persian from "react-date-object/calendars/persian";
 import persian_fa from "react-date-object/locales/persian_fa";
-import { useReservation } from "./ReservationContext";
+import { useReservation } from "@/app/_context/ReservationContext";
 // import { isPast } from "date-fns-jalali";
 // import DateObject from "react-date-object";
 import { useState, useEffect } from "react";
