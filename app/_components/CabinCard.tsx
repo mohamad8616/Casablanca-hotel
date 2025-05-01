@@ -26,7 +26,7 @@ export default function Cabin({ cabin }: { cabin: CabinCard }) {
   };
 
   return (
-    <div className="group relative h-full w-full overflow-scroll rounded-lg bg-white shadow-md transition-all duration-300 hover:shadow-xl dark:bg-slate-800">
+    <div className="group relative h-full w-full overflow-hidden rounded-lg bg-white shadow-md transition-all duration-300 hover:shadow-xl dark:bg-slate-800">
       {/* Image container with overlay on hover */}
       <div className="relative h-48 w-full overflow-hidden">
         {image ? (

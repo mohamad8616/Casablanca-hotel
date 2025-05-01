@@ -1,7 +1,7 @@
 import { ReactNode, Suspense } from "react";
 import SideNav from "../_components/SideNav";
 import Loading from "@/app/account/Loading";
-import ReservationProvider from "../_components/ReservationContext";
+import ReservationProvider from "../_context/ReservationContext";
 
 export default function layout({ children }: { children: ReactNode }) {
   return (

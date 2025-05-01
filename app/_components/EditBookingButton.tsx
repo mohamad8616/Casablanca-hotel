@@ -6,7 +6,7 @@ import { useState, useEffect, useTransition } from "react";
 import { MdEditCalendar } from "react-icons/md";
 import Modal from "./Modal";
 import DateSelector from "./DateSelector";
-import { useReservation } from "./ReservationContext";
+import { useReservation } from "../_context/ReservationContext";
 import { ScaleLoader } from "react-spinners";
 
 export default function EditBookingButton({

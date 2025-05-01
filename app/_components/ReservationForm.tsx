@@ -3,7 +3,7 @@ import { Cabin } from "@/app/_lib/dataType";
 
 import DateSelector from "./DateSelector";
 import { differenceInCalendarDays } from "date-fns-jalali";
-import { useReservation } from "./ReservationContext";
+import { useReservation } from "../_context/ReservationContext";
 import { createBooking } from "../_lib/actions";
 import { useState } from "react";
 import Modal from "./Modal";
