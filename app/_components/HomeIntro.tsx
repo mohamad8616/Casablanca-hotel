@@ -28,14 +28,14 @@ export default function HomeIntro() {
           هتل<span className="text-yellow-600"> پنج ستاره</span> کازابلانکا
         </h1>
         <h3 className="my-3 text-center text-2xl">مکانی رویایی</h3>
-        <p className="text-sm/9 tracking-wide">
-          {showMore ? textExpander(introText, 100) : introText}
+        <p className="text-base/9 font-semibold tracking-wide">
+          {!showMore ? textExpander(introText, 100) : introText}
         </p>
         <button
           className="-mt-3 block cursor-pointer text-sm text-stone-500"
           onClick={() => setShowMore(!showMore)}
         >
-          {!showMore ? "بستن" : "بیشتر بخوانید"}
+          {showMore ? "بستن" : "بیشتر بخوانید"}
         </button>
         <Link
           href="/about"

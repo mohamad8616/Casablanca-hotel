@@ -26,7 +26,7 @@ export default function SliderForRooms({
       <Suspense fallback={<Loading />}>
         <Slider cabinImages={cabinImages} />
       </Suspense>
-      <div className="w-full text-sm/9 tracking-wide md:w-11/12 lg:w-10/12 dark:text-stone-100">
+      <div className="w-full text-base/9 font-semibold tracking-wide md:w-11/12 lg:w-10/12 dark:text-stone-100">
         <p>{showText ? sliderText : textExpander(sliderText, 100)}</p>
         <button
           onClick={() => setShowText(!showText)}

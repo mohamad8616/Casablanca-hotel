@@ -6,7 +6,7 @@ import localFont from "next/font/local";
 import Footer from "./_components/Footer";
 import { Suspense } from "react";
 import { ThemeProvider } from "@/src/context/ThemeContext";
-const myFont = localFont({ src: "./Yekan.woff2" });
+const myFont = localFont({ src: "./font/Yekan.woff2" });
 export const metadata: Metadata = {
   title: "هتل کازابلانکا",
   description: "سایت رسمی هتل کازابلانکا",
