@@ -1,4 +1,4 @@
-import Reservation from "@/app/_components/Reservation";
+import Reservation from "@/app/_components/reservation/Reservation";
 import { getCabinByID } from "@/app/_lib/database";
 import Image from "next/image";
 import Link from "next/link";

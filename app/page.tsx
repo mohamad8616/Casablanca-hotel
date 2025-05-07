@@ -3,7 +3,7 @@ import HomeIntro from "./_components/HomeIntro";
 import HotelStatus from "./_components/HotelStatus";
 import { Suspense } from "react";
 import Loading from "./Loading";
-import SliderForRooms from "./_components/SliderForRooms";
+import SliderForRooms from "./_components/UI/SliderForRooms";
 export default async function Home() {
   const cabins = await getCabins();
   const cabinImages = cabins?.map((cabin) => cabin.image) || [];

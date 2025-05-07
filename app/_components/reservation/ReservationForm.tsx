@@ -1,12 +1,13 @@
 "use client";
 import { Cabin } from "@/app/_lib/dataType";
 
-import DateSelector from "./DateSelector";
+import DateSelector from "../DateSelector";
 import { differenceInCalendarDays } from "date-fns-jalali";
-import { useReservation } from "../_context/ReservationContext";
-import { createBooking } from "../_lib/actions";
+import { useReservation } from "@/app/_context/ReservationContext";
+import { createBooking } from "@/app/_lib/actions";
 import { useState } from "react";
-import Modal from "./Modal";
+import Modal from "../UI/Modal";
+import DateObject from "react-date-object";
 const inputClass =
   "rounded-md border-3 border-stone-700/50 bg-stone-100 px-3 py-1 text-stone-700";
 
@@ -29,8 +30,12 @@ export default function ReservationForm({ cabin }: { cabin: Cabin }) {
   const totalPrice: number =
     typeof numDays === "number" ? numDays * regularPrice : 0;
 
-  const startDate = range[0];
-  const endDate = range[1];
+  const startDate = range[0] as unknown as DateObject;
+  const endDate = range[1] as unknown as DateObject;
+
+  const formatDate = (date: DateObject | undefined) => {
+    return date ? date.format("YYYY/MM/DD") : null;
+  };
 
   const bookingData = {
     cabinId,
@@ -59,13 +64,13 @@ export default function ReservationForm({ cabin }: { cabin: Cabin }) {
                   <div className="flex h-full w-8/12 items-center justify-between bg-slate-800 px-5 text-slate-200 dark:bg-emerald-600">
                     <span>
                       از:{" "}
-                      {startDate?.format?.("YYYY/MM/DD") || (
+                      {formatDate(startDate) || (
                         <button className="font-semibold">..../../..</button>
                       )}
                     </span>
                     <span>
                       تا:{"    "}
-                      {endDate?.format?.("YYYY/MM/DD") || (
+                      {formatDate(endDate) || (
                         <button className="font-semibold">..../../..</button>
                       )}
                     </span>
@@ -162,7 +167,7 @@ export default function ReservationForm({ cabin }: { cabin: Cabin }) {
                   <p className="w-auto">انتخاب تاریخ:</p>
                   <span>
                     از:{" "}
-                    {startDate?.format?.("YYYY/MM/DD") || (
+                    {formatDate(startDate) || (
                       <span
                         onClick={() => setShowCalendar(true)}
                         className="rounded-md border-2 px-2 py-0.5 font-semibold text-slate-500"
@@ -173,7 +178,7 @@ export default function ReservationForm({ cabin }: { cabin: Cabin }) {
                   </span>
                   <span>
                     تا:{"    "}
-                    {endDate?.format?.("YYYY/MM/DD") || (
+                    {formatDate(endDate) || (
                       <span
                         onClick={() => setShowCalendar(true)}
                         className="rounded-md border-2 px-2 py-0.5 font-semibold text-slate-500"

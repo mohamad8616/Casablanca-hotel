@@ -1,5 +1,5 @@
 import { SiGoogle } from "react-icons/si";
-import { SignInAction } from "../_lib/actions";
+import { SignInAction } from "../../_lib/actions";
 
 export default function SignInButton() {
   return (

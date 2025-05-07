@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { auth } from "../_lib/auth";
-import SignOutButton from "./SignOutButton";
+import SignOutButton from "./UI/SignOutButton";
 import SmallSideNav from "./SmallSideNav";
 
 export default async function SideNav() {

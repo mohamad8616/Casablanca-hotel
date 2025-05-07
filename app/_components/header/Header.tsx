@@ -1,4 +1,4 @@
-import { auth } from "../_lib/auth";
+import { auth } from "../../_lib/auth";
 
 // import { SiHiltonhotelsandresorts } from "react-icons/si";
 import LargeNavbar from "./LargeNavbar";

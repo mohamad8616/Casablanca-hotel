@@ -1,8 +1,8 @@
 "use client";
 import { Suspense, useState } from "react";
 import Slider from "./Slider";
-import Loading from "../Loading";
-import { textExpander } from "../_lib/utility";
+import Loading from "../../Loading";
+import { textExpander } from "../../_lib/utility";
 import Link from "next/link";
 
 const sliderText = `      این کابین‌های لوکس و چوبی با طراحی مدرن و امکانات کامل، تجربه‌ای

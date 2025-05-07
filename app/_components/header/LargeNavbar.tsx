@@ -1,15 +1,15 @@
 "use client";
 import Image from "next/image";
-import TextLogo from "./TextLogo";
-import ContactUs from "./ContactUs";
-import LanguageSelect from "./LanguageSelect";
+import TextLogo from "../UI/TextLogo";
+import ContactUs from "../UI/ContactUs";
+import LanguageSelect from "../UI/LanguageSelect";
 import picHeader from "@/public/pic1.jpg";
 import Link from "next/link";
 import { IoHomeOutline } from "react-icons/io5";
 import { BsQuestionSquare } from "react-icons/bs";
 import { GiWoodCabin } from "react-icons/gi";
 import { IoMdContacts } from "react-icons/io";
-import { LargeHeaderProps } from "../_lib/dataType";
+import { LargeHeaderProps } from "../../_lib/dataType";
 import ThemeToggle from "@/app/_components/ThemeToggle";
 import { ReactNode, useState } from "react";
 

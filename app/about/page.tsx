@@ -1,4 +1,4 @@
-import Slider from "../_components/Slider";
+import Slider from "../_components/UI/Slider";
 
 export const metadata = {
   title: "درباره مجموعه | هتل جنگلی",

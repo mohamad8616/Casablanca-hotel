@@ -1,6 +1,6 @@
 "use client";
 import { ScaleLoader } from "react-spinners";
-import { DeleteBooking } from "../_lib/actions";
+import { DeleteBooking } from "../../_lib/actions";
 import { useTransition } from "react";
 
 export default function DeleteBookingButton({

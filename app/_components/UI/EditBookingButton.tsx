@@ -1,12 +1,12 @@
 "use client";
 import { format } from "date-fns-jalali";
-import { updateBooking } from "../_lib/actions";
-import { Reservation } from "../_lib/dataType";
+import { updateBooking } from "../../_lib/actions";
+import { Reservation } from "../../_lib/dataType";
 import { useState, useEffect, useTransition } from "react";
 import { MdEditCalendar } from "react-icons/md";
 import Modal from "./Modal";
-import DateSelector from "./DateSelector";
-import { useReservation } from "../_context/ReservationContext";
+import DateSelector from "../DateSelector";
+import { useReservation } from "../../_context/ReservationContext";
 import { ScaleLoader } from "react-spinners";
 
 export default function EditBookingButton({

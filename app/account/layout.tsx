@@ -5,7 +5,7 @@ import ReservationProvider from "../_context/ReservationContext";
 
 export default function layout({ children }: { children: ReactNode }) {
   return (
-    <main className="flex w-full flex-col md:h-[450px] md:flex-row lg:h-[550px]">
+    <main className="flex w-full flex-col md:h-[550px] md:flex-row lg:h-[750px]">
       <SideNav />
 
       <Suspense fallback={<Loading />}>

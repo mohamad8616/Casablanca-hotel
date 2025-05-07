@@ -1,9 +1,9 @@
 import { format } from "date-fns-jalali";
 import Image from "next/image";
-import { Reservation } from "../_lib/dataType";
-import { getCabinByID } from "../_lib/database";
-import DeleteBookingButton from "./DeleteBookingButton";
-import EditBookingButton from "./EditBookingButton";
+import { Reservation } from "@/app/_lib/dataType";
+import { getCabinByID } from "@/app/_lib/database";
+import DeleteBookingButton from "../UI/DeleteBookingButton";
+import EditBookingButton from "../UI/EditBookingButton";
 
 export default async function ReservationCard({
   reservation,

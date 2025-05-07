@@ -1,6 +1,6 @@
 import { Cabin } from "@/app/_lib/dataType";
-import { auth } from "../_lib/auth";
-import ReservationProvider from "../_context/ReservationContext";
+import { auth } from "@/app/_lib/auth";
+import ReservationProvider from "@/app/_context/ReservationContext";
 import ReservationForm from "./ReservationForm";
 import Link from "next/link";
 

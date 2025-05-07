@@ -1,4 +1,4 @@
-import SignOutButton from "../_components/SignOutButton";
+import SignOutButton from "../_components/UI/SignOutButton";
 import { auth } from "../_lib/auth";
 
 const inputStyle =

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Loading from "./Loading";
 import "./globals.css";
-import Header from "./_components/Header";
+import Header from "./_components/header/Header";
 import localFont from "next/font/local";
 import Footer from "./_components/Footer";
 import { Suspense } from "react";
@@ -24,9 +24,11 @@ export default function RootLayout({
         className={`${myFont.className} antialiased dark:bg-stone-800 dark:text-stone-50`}
       >
         <ThemeProvider>
-          <Header />
-          <Suspense fallback={<Loading />}>{children}</Suspense>
-          <Footer />
+          <div className="space-y-10">
+            <Header />
+            <Suspense fallback={<Loading />}>{children}</Suspense>
+            <Footer />
+          </div>
         </ThemeProvider>
       </body>
     </html>

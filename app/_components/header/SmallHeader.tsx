@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import TextLogo from "./TextLogo";
+import TextLogo from "../UI/TextLogo";
 import { RxHamburgerMenu } from "react-icons/rx";
 import Image from "next/image";
 import picHeader from "@/public/pic1.jpg";
@@ -9,7 +9,7 @@ import { IoHomeOutline } from "react-icons/io5";
 import { BsQuestionSquare } from "react-icons/bs";
 import { GiWoodCabin } from "react-icons/gi";
 import { IoMdContacts } from "react-icons/io";
-import ThemeToggle from "./ThemeToggle";
+import ThemeToggle from "../ThemeToggle";
 
 export interface SessionProps {
   session: {

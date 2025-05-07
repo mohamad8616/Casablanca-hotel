@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ScrollVelocity } from "./_components/ScrollVelocity";
+import { ScrollVelocity } from "./_components/UI/ScrollVelocity";
 
 export default function NotFound() {
   return (

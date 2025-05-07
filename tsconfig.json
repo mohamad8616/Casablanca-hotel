@@ -29,7 +29,7 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "app/cabins/[cabinId]/page.jsx",
-    "app/_components/HomeSlider.jsx",
+    "app/_components/UI/HomeSlider.jsx",
     "app/_lib/auth.js",
     "app/_components/DateSelector.tsx",
     "app/_components/Reservation.tsx",

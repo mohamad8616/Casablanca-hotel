@@ -5,47 +5,81 @@ export default function Footer() {
   return (
     <footer
       id="contactUs"
-      className="z-50 flex w-full flex-col items-center justify-center bg-stone-800 px-4 py-6 text-sm text-stone-200"
+      className="relative z-50 w-full bg-gradient-to-b from-stone-900 to-stone-800 px-4 py-12 text-stone-200 md:px-8 lg:px-12"
     >
-      <div className="w-full grid-cols-2 justify-between gap-4 space-y-10 sm:grid sm:grid-cols-3">
-        <div className="flex flex-col items-center justify-center rounded-xl p-2 text-center shadow-none shadow-stone-300/6 sm:h-50 sm:shadow-xl">
-          <h1 className="mb-4 text-lg text-amber-500">آدرس</h1>
-          <p className="text-sm tracking-wide text-stone-400">
-            استان مزندران، شهر نمک آبرود
+      <div className="mx-auto max-w-7xl">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-3 md:gap-8 lg:gap-12">
+          {/* Address Section */}
+          <div className="group rounded-2xl bg-stone-800/50 p-6 backdrop-blur-sm transition-all hover:bg-stone-800/70 md:h-full md:text-center">
+            <h2 className="mb-4 text-xl font-semibold text-amber-400">آدرس</h2>
+            <p className="leading-relaxed text-stone-300">
+              استان مزندران، شهر نمک آبرود
+            </p>
+          </div>
+
+          {/* Brand Section */}
+          <div className="group rounded-2xl bg-stone-800/50 p-6 backdrop-blur-sm transition-all hover:bg-stone-800/70 md:h-full md:text-center">
+            <h1 className="mb-2 text-3xl font-bold tracking-wider text-stone-100 md:text-4xl">
+              Casablanca
+            </h1>
+            <h2 className="text-xl font-light tracking-widest text-amber-400 md:text-2xl">
+              Luxury
+            </h2>
+            <h4 className="text-sm tracking-wider text-stone-400 md:text-base">
+              paradise
+            </h4>
+          </div>
+
+          {/* Contact Section */}
+          <div className="group rounded-2xl bg-stone-800/50 p-6 backdrop-blur-sm transition-all hover:bg-stone-800/70 md:h-full md:text-center">
+            <h2 className="mb-4 text-xl font-semibold text-amber-400">
+              تماس با ما
+            </h2>
+            <div className="space-y-2">
+              <p className="text-stone-300 md:text-lg">09104008616</p>
+              <p className="text-stone-300 md:text-lg">0215986255</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Social Media Section */}
+        <div className="mt-12 text-center md:mt-16">
+          <h3 className="mb-6 text-lg font-medium text-amber-400 md:text-xl">
+            ما را دنبال کنید
+          </h3>
+          <div className="flex items-center justify-center gap-8 md:gap-12">
+            <a
+              target="_blank"
+              href="https://instagram.com"
+              className="transform text-2xl text-stone-300 transition-all hover:scale-110 hover:text-amber-400 md:text-3xl"
+            >
+              <CiInstagram className="text-red-600" />
+            </a>
+            <a
+              target="_blank"
+              href="tel:989333449036"
+              className="transform text-2xl text-stone-300 transition-all hover:scale-110 hover:text-amber-400 md:text-3xl"
+            >
+              <MdOutlineWhatsapp className="text-green-500" />
+            </a>
+            <a
+              href="https://linkedin.com/in/mohamad-abdolahi"
+              target="_blank"
+              className="transform text-2xl text-stone-300 transition-all hover:scale-110 hover:text-amber-400 md:text-3xl"
+            >
+              <CiLinkedin className="text-blue-400" />
+            </a>
+          </div>
+        </div>
+
+        {/* Copyright Section */}
+        <div className="mt-12 border-t border-stone-700/50 pt-6 text-center md:mt-16">
+          <p className="text-sm text-stone-400 md:text-base">
+            کپی رایت Casablanca 2025 &copy;، کلیه حقوق محفوظ است. توسعه یافته
+            توسط
+            <span className="text-amber-400"> Moahamad8616</span>
           </p>
         </div>
-        <div className="flex flex-col items-center justify-center rounded-xl border-stone-300 p-2 text-center sm:h-50 sm:border-1">
-          <h1 className="text-2xl font-semibold tracking-widest text-stone-300">
-            Casablanca
-          </h1>
-          <h2 className="text-xl tracking-widest text-stone-400">Luxury</h2>
-          <h4 className="text-sm tracking-wide text-stone-400">paradise </h4>
-        </div>
-        <div className="flex flex-col items-center justify-center rounded-xl p-2 text-center shadow-xl shadow-stone-300/6 sm:h-50">
-          <h1 className="mb-4 text-lg text-amber-500">تماس با ما</h1>
-          <p className="text-sm tracking-wide text-stone-400">09104008616</p>
-          <p className="text-sm tracking-wide text-stone-400">0215986255</p>
-        </div>
-      </div>
-      <div className="my-4 space-y-3 text-base">
-        <p className="text-center text-amber-500">ما را دنبال کنید </p>
-        <div className="flex items-center justify-center gap-8 px-4 py-2 text-2xl">
-          <span>
-            <CiInstagram />
-          </span>
-          <span>
-            <MdOutlineWhatsapp />
-          </span>
-          <span>
-            <CiLinkedin />
-          </span>
-        </div>
-      </div>
-      <div className="w-full border-t-1 border-stone-500 px-4 py-2">
-        <p className="text-xs font-light tracking-wide text-stone-400">
-          کپی رایت Casablanca 2025 &copy;، کلیه حقوق محفوظ است. توسعه یافته توسط
-          Moahamad8616
-        </p>
       </div>
     </footer>
   );
