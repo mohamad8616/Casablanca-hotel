@@ -62,17 +62,6 @@ export default function EditBookingButton({
     }
   };
 
-  // const handleSubmit = async (e: React.FormEvent) => {
-  //   e.preventDefault();
-  //   // Here you would typically send the updated data to your API
-  //   console.log("Updated booking data:", editData);
-  // };
-  // await updateBooking(editData);
-
-  // Close the modal after submission
-  // setShowModal(false);
-  // }
-
   const bookingData = {
     startDate: range[0],
     endDate: range[1],
