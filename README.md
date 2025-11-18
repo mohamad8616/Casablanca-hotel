@@ -1,6 +1,6 @@
 # Casablanca Hotel
 
-([live demo:](https://casablanca-hotel.vercel.app/))
+[live demo:](https://casablanca-hotel.vercel.app/)
 
 ![main page](public/readme/main.png)
 
