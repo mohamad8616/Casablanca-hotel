@@ -139,8 +139,8 @@ export default function SmallHeader({ session }: SessionProps) {
                 alt="user image"
                 referrerPolicy="no-referrer"
                 className="h-11/12 rounded-full sm:h-8 sm:w-8"
-                width={26} // Adjust width as needed
-                height={26} // Adjust height as needed
+                width={26}
+                height={26}
               />
               <span className="text-sm sm:text-sm">{session.user.name}</span>
             </Link>

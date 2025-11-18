@@ -57,13 +57,13 @@ export default function Footer() {
             </a>
             <a
               target="_blank"
-              href="tel:989333449036"
+              href="tel:989331111111"
               className="transform text-2xl text-stone-300 transition-all hover:scale-110 hover:text-amber-400 md:text-3xl"
             >
               <MdOutlineWhatsapp className="text-green-500" />
             </a>
             <a
-              href="https://linkedin.com/in/mohamad-abdolahi"
+              href="https://linkedin.com/"
               target="_blank"
               className="transform text-2xl text-stone-300 transition-all hover:scale-110 hover:text-amber-400 md:text-3xl"
             >
